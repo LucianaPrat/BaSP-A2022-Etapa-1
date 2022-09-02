@@ -1,0 +1,31 @@
+img {
+  height: 50px;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../img/Roboto-Thin.ttf") format("truetype");
+}
+
+body {
+  font-family: "Roboto";
+}
+
+header {
+  background-color: #373867;
+  border-radius: 0px 0px 5px 5px;
+  height: 116.21px;
+}
+
+.logo-Trackgenix {
+  width: 498px;
+  height: 98px;
+  margin-left: 57px;
+  margin-top: 11px;
+}
+
+.icons-media{
+  float:right;
+  margin-top: 32px;
+  margin-right: 26px;
+}
