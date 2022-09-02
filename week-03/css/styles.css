@@ -1,7 +1,3 @@
-img {
-  height: 50px;
-}
-
 @font-face {
   font-family: "Roboto";
   src: url("../img/Roboto-Thin.ttf") format("truetype");
@@ -29,3 +25,48 @@ header {
   margin-top: 32px;
   margin-right: 26px;
 }
+
+.icons-media img{
+  display: inline;
+  width: 51px;
+}
+
+aside{
+  background-color: #DFE4DE;
+  width: 253px;
+  height: 509px;
+  border-radius: 0px 0px 5px 5px;
+  margin-left: 20px;
+  padding: 32px 27px 34px 32px; 
+}
+
+aside li{
+  margin-bottom: 18px;
+}
+aside a{
+  text-decoration:none;
+}
+
+aside p{
+  margin-bottom: 18px;
+}
+
+.nav{
+
+}
+
+address img{
+ width: 18px;
+ margin-right: 11px;
+}
+
+address a{
+  display: inline-block;  
+  margin-bottom: 20px;  
+  text-decoration:none;
+  width: 200px;  
+}
+.icon-house{
+  padding-bottom: 20px;
+}
+
