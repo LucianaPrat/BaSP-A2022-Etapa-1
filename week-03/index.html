@@ -12,10 +12,10 @@
     <header>
       <img src="img/logo-trackgenix.svg" alt="Trackgenix logo" class="logo-Trackgenix">
       <span class="icons-media">
-        <img src="img/logo-twitter.svg" alt="Twiter logo">
-        <img src="img/logo-instagram.svg" alt="Instagram logo">
-        <img src="img/logo-linkedin.svg" alt="Linkedin logo">
-        <img src="img/logo-facebook.svg" alt="Facebook logo">
+        <a href=""><img src="img/logo-twitter.svg" alt="Twiter logo"></a>
+        <a href=""><img src="img/logo-instagram.svg" alt="Instagram logo"></a>
+        <a href=""><img src="img/logo-linkedin.svg" alt="Linkedin logo"></a>
+        <a href=""><img src="img/logo-facebook.svg" alt="Facebook logo"></a>
       </span>
     </header>
     <aside>
@@ -45,13 +45,13 @@
         eum dolorum modi!
       </p>
       <address>
-        <img src="img/icon-phone.svg" alt="phone logo"><a href="">(000) 000-0000</a>
-        <img src="img/icon-mail.svg"  alt="mail logo"><a href="">informatio@untitled.tld</a>
-        <img src="img/icon-direction.svg" alt="logo direction"><a href="">1234 Somewhere Road #8254 Nashville, TN 00000-0000</a>
+        <a href=""><img src="img/icon-phone.svg" alt="phone logo">(000) 000-0000</a>
+        <a href=""><img src="img/icon-mail.svg"  alt="mail logo">informatio@untitled.tld</a>
+        <a href="" class="direction"><img src="img/icon-direction.svg" alt="logo direction" >1234 Somewhere Road #8254 Nashville, TN 00000-0000</a>
       </address>
     </aside>
     <main>
-      <section>
+      <section class="introduction">
         <article>
           <h1>Trackgenix by RadiumRocket</h1>
           <h2>an easy system to track your team's times and proyects</h2>
@@ -61,10 +61,10 @@
             commodi iusto, repellat magni qui! Animi inventore dolore doloribus
             commodi tempora?
           </p>
-          <button>learn more</button>
+          <a href="">Learn more</a>
         </article>
         <article>
-          <img src="img/image-service.JPG" alt="image service">
+          <img src="img/image-service.jpg" alt="image service" class="img-service">
         </article>
       </section>
       <section>
@@ -121,7 +121,7 @@
             quisquam repellendus labore quia, excepturi ducimus minus,
             reprehenderit explicabo ut quasi!
           </p>
-          <button>more</button>
+          <a href="">more</a>
         </article>
         <article>
           <img src="img/fill-img.jpg" alt="work tracebility image">
@@ -132,7 +132,7 @@
             quisquam repellendus labore quia, excepturi ducimus minus,
             reprehenderit explicabo ut quasi!
           </p>
-          <button>more</button>
+          <a href="">more</a>
         </article>
         <article>
           <img src="img/fill-img.jpg" alt="Work tracebility image">
@@ -143,7 +143,7 @@
             quisquam repellendus labore quia, excepturi ducimus minus,
             reprehenderit explicabo ut quasi!
           </p>
-          <button>more</button>
+          <a href="">more</a>
         </article>
       </section>
       <section>
@@ -153,12 +153,12 @@
           <input type="text" id="name">
           <label for="email">Email</label>
           <input type="text" id="email">
-          <label>Contact area</label>
-          <input type="checkbox" /><label>Human Resources</label>
-          <input type="checkbox" /><label>System</label>
-          <input type="checkbox" /><label>Commercial</label>
-          <label>Message</label>
-          <textarea name="message" cols="30" rows="10"></textarea>
+          <h4>Contact area</h4>
+          <input type="checkbox" id="human-resources"><label for="human-resources">Human Resources</label>
+          <input type="checkbox" id="system"><label for="system">System</label>
+          <input type="checkbox" id="commercial"><label for="commercial">Commercial</label>
+          <label for="message">Message</label>
+          <textarea name="message" cols="30" rows="10" id="message"></textarea>
           <button>Reset</button>
           <button>Send</button>
         </form>

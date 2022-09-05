@@ -11,6 +11,8 @@ header {
   background-color: #373867;
   border-radius: 0px 0px 5px 5px;
   height: 116.21px;
+  position: fixed;
+  width: 100%;
 }
 
 .logo-Trackgenix {
@@ -35,9 +37,11 @@ aside{
   background-color: #DFE4DE;
   width: 253px;
   height: 509px;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 15px 15px;
   margin-left: 20px;
-  padding: 32px 27px 34px 32px; 
+  padding: 32px 27px 34px 32px;
+  position: fixed; 
+  top: 116.21px;
 }
 
 aside li{
@@ -51,22 +55,60 @@ aside p{
   margin-bottom: 18px;
 }
 
-.nav{
-
-}
-
 address img{
- width: 18px;
- margin-right: 11px;
+  width: 18px;
+  padding-right: 10px;
 }
 
 address a{
   display: inline-block;  
-  margin-bottom: 20px;  
   text-decoration:none;
-  width: 200px;  
+  margin-bottom: 10px;
+  width: 200px; 
 }
-.icon-house{
-  padding-bottom: 20px;
+
+.direction #text{
+  padding-left: 10px;
 }
+
+h1{
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 47px;
+}
+
+.img-service{
+  width: 504px;
+}
+
+section{
+  border-bottom: solid 1px #373867;
+}
+
+main{  
+  width: 1600px;
+  margin-left: 320px;  
+  float: right;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.introduction{
+  margin-top: 178px;
+}
+
+.introduction article{
+  display: inline-block;  
+  width: 45%;
+  margin-left:50px ;
+}
+
+.introduction article img{
+  margin-left: 150px;
+
+}
+
 
