@@ -3,6 +3,11 @@
   src: url("../img/Roboto-Thin.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto-black";
+  src: url("../img/Roboto-Black.ttf");
+}
+
 body {
   font-family: "Roboto";
   color: #373867;
@@ -13,20 +18,19 @@ header {
   border-radius: 0px 0px 5px 5px;
   height: 116.21px;
   position: fixed;
+  top: 0px;
   width: 100%;
 }
 
 .logo-Trackgenix {
   width: 498px;
   height: 98px;
-  margin-left: 57px;
-  margin-top: 11px;
+  margin: 11px 0px 0px 57px;
 }
 
 .icons-media{
   float:right;
-  margin-top: 32px;
-  margin-right: 26px;
+  margin: 32px 0px 0px 26px;
 }
 
 .icons-media img{
@@ -41,8 +45,19 @@ aside{
   margin-left: 20px;
   padding: 32px 27px 34px 32px;
   position: fixed; 
-  top: 146.21px;
+  top: 116px;
   width: 253px;
+}
+
+.menu, .get-in-touch{
+  font-family: "Roboto-black";
+  text-decoration: underline;
+  color: #373867;
+}
+
+.address-text{
+  width: 172px;
+  float: right;
 }
 
 aside li{
@@ -72,11 +87,18 @@ address a{
   padding-left: 10px;
 }
 
-h1{
+
+h1 #trackgenix{
   font-weight: 700;
   font-size: 40px;
   line-height: 47px;
 }
+
+#trackgenix{
+  font-family: "Roboto-black";
+  display: inline;
+}
+
 
 .img-service{
   width: 504px;
@@ -87,11 +109,8 @@ section{
 }
 
 main{  
-  margin-left: 380px;
-  margin-top: 180px;
-  margin-right: 50px;
-  float: right;
-  
+  margin: 180px 50px 0px 380px;
+  float: right;  
 }
 
 h1{
@@ -109,9 +128,7 @@ h2{
   text-transform: uppercase;
   font-weight: 1000;  
   font-size: 25px;
-  padding-left: 20px;
-  padding-top: 12px;
-  padding-bottom: 20px;
+  padding: 30px 0px 20px 0px;
 }
 
 h3{
@@ -122,6 +139,7 @@ h3{
 .box-left{
   float: left;
   width: 900px;
+  height: 338px;
 }
 .box-left p{
   height: 90px;
@@ -133,15 +151,16 @@ h3{
 .learn-more{
  margin-left: 650px;
 }
-
+.section-2{
+  height: 400px;
+}
 .section-2 article{
   display: inline-block;
   width: 40%;
 }
 
 .section-2 h3{
-  margin-left: 194px;
-  margin-bottom: 20px;
+  margin: 0px 0px 20px 194px ;
   border-bottom: solid 1px #373867;
   padding-bottom: 5px;
 }
@@ -162,7 +181,7 @@ h3{
 
 .section-2 .box p{
   float: right;    
-  width: 500px;
+  width: 400px;
 }
 
 .section-2 .box h3 p{
@@ -171,11 +190,15 @@ h3{
 }
 
 .section-3 {
+  min-width: 1500px;
   height: 521px;
+  overflow: auto;
+  white-space: nowrap;
 }
 
-.more{
-  margin-left: 100px;
+.why{
+  padding: 10px;
+  display: inline-block;
 }
 
 .section-3 img{
@@ -185,15 +208,16 @@ h3{
 .section-3 p{
   height: 118px;
   width: 352px;
+  white-space: normal;
 }
 
 .section-3 article{
   display: inline-block;
-  width: 30%;
+  width: 25%;
 }
 
-.why{
-  padding: 30px;
+.more{
+  margin-left: 100px;
 }
 
 .btn {
@@ -206,7 +230,7 @@ h3{
 }
 
 .section-4{
-  height: 324px;
+  height: 404px;
 }
 
 .section-4 .input-info{
@@ -219,16 +243,14 @@ h3{
 .part-left{
   float: left;
   height: 100px;
-  padding-top: 30px;
-  padding-left: 60px;
+  padding: 30px 0px 0px 100px;
   width: 200px;
 }
 
 .part-right{
   float: right;
   height: 100px;
-  padding-top: 30px;
-  padding-right: 217px;
+  padding: 30px 179px 0px 0px;
   width: 500px;
 }
 
@@ -243,8 +265,7 @@ h3{
 }
 
 .btns{
-  padding-top: 40px;
-  padding-left: 235px;
+  padding: 40px 235px 0px 0px;
 }
 
 .btn-2{  
@@ -294,15 +315,13 @@ h3{
 h4{
   font-size: 20px;
   font-weight: 1000;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0px 20px 0px;
   text-decoration: underline;
 }
 
 .section-6{
   height: 300px;
-  padding-left: 40px;
-  padding-top: 20px ;
+  padding: 20px 0px 0px 40px;
 }
 
 .list{
@@ -327,16 +346,13 @@ h4{
   padding-top: 15px;
 }
 
-
-
 footer{
   margin: 30px;
 }
 
 footer img{
-  margin-bottom: 62px;
-  margin-left: 1037px;
-  padding-top: 70px;
+  margin: 0px auto 62px auto;
+  padding: 70px 0px 0px 220px; 
   display: flex;
   width: 330px;
 }
@@ -344,7 +360,6 @@ footer img{
 footer p{
   font-size: 25px;
   font-weight: 700;
-  margin-left: 200px;
-  margin-top: 20px;
+  margin: 20px 0px 0px 200px;
   text-align: center;
 }
