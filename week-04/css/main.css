@@ -1,0 +1,51 @@
+.logo-Trackgenix {
+  font-weight: bold;
+}
+
+.img-service {
+  width: 80%;
+  border-radius: 6%;
+}
+
+.introduction-container {
+  margin-top: 88px;
+
+  display: flex;
+  width: 100%;
+  height: 450px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.item {
+  padding: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+h1 {
+  font-size: 25px;
+  color: #373867;
+}
+
+.trackgenix-title {
+  font-family: "Roboto-black";
+}
+
+h2 {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 9px;
+}
+
+.btn {
+  text-transform: uppercase;
+  border: 2px solid #373867;
+  border-radius: 5px;
+  padding: 6px 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
