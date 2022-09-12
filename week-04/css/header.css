@@ -1,7 +1,9 @@
-header {
+.header-container {
   position: fixed;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #373867;
   border-radius: 0 0 5px 5px;
   width: 100%;
@@ -9,16 +11,12 @@ header {
   top: 0px;
 }
 
-.container-header {
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-Trackgenix {
+.logo-trackgenix {
   width: 314px;
 }
 
-.icons-media {
+.logo-trackgenix-2 {
+  display: none;
 }
 
 .icons-media img {
@@ -29,3 +27,41 @@ header {
 .arrow-icon {
   width: 20px;
 }
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;    
+  }
+  
+  .header-container .item {
+    margin: 20px 20px;
+  }
+   
+  .icons-media {
+    display: flex ;
+  }
+
+  .icons-media img {
+    display: inline;
+  }
+
+  .logo-trackgenix {
+  display: none;
+  
+  }
+
+  .logo-trackgenix-2 {
+  display: inline;
+  width: 230px;
+  }
+
+  .arrow-icon {
+  display: none;
+  }
+  
+  
+
+}
+   

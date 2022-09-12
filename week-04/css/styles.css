@@ -14,8 +14,18 @@ body {
   font-size: 12px;
 }
 
+
 section {
+  background-color: aquamarine;
   border-bottom: solid 2px #373867;
-  display: flex;
+}
+
+h4 {
+  width: 100%;
+  padding-top: 5px;
+  border-bottom: solid 1px #373867;
+  font-family: "Roboto-Black";
+  font-size: 0.938rem;
+  font-weight: bold;
 }
 

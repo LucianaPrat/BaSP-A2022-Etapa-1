@@ -1,6 +1,21 @@
+.color {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  background: rgba(55, 56, 103, 0.69);
+  backdrop-filter: blur(5px);
+}
+
 .aside-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+aside {
   position: fixed;
-  top: 116px;
+  top: 88px;
   display: flex;
   flex-direction: column;   
   justify-content: space-around;
@@ -14,6 +29,10 @@
 }
 
 .icons-aside {
-    width: 18px;
+  width: 18px;
 }
 
+.address-container {
+  display: flex;
+  flex-direction: column;
+}
