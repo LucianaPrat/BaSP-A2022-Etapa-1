@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />    
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/aside.css" />
     <title>Trackgenix</title>
   </head>
   <body>
@@ -25,51 +27,46 @@
       </span>
       <img class="arrow-icon" src="./img/icon-arrow.svg" alt="arrow" />
     </header>
-    <!-- 
-    <aside>
-      <ul class="nav">
+    <aside class="aside-container"> 
+      <div class="item">
+        <ul>
+          <li>
+            <a href="" class="menu">Menu</a>
+          </li>
+          <li>
+            <a href="">Home</a>
+          </li>
+          <li>
+            <a href="">Sign up</a>
+          </li>
+          <li>
+            <a href="">Sign in</a>
+          </li>
+          <li>
+            <a href="">About us</a>
+          </li>          
+        </ul>
+      </div>  
+      <div class="item">
         <li>
-          <a href="" class="menu">Menu</a>
-        </li>
-        <li>
-          <a href="">Home</a>
-        </li>
-        <li>
-          <a href="">Sign up</a>
-        </li>
-        <li>
-          <a href="">Sign in</a>
-        </li>
-        <li>
-          <a href="">About us</a>
-        </li>
-        <li>
-          <a href="" class="get-in-touch">Get in touch</a>
-        </li>
-      </ul>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus
-        modi similique doloremque eum ad itaque. Nemo fugiat placeat, debitis
-        eum dolorum modi!
-      </p>
-      <address>
-        <a href=""
-          ><img src="img/icon-phone.svg" alt="phone logo" />(000) 000-0000</a
-        >
-        <a href=""
-          ><img
-            src="img/icon-mail.svg"
-            alt="mail logo"
-          />informatio@untitled.tld</a
-        >
-        <a href=""
-          ><img src="img/icon-direction.svg" alt="logo address" />
-          <p class="address-text">
-            1234 Somewhere Road #8254 Nashville, TN 00000-0000
-          </p></a
-        >
-      </address>
-    </aside> -->
+            <a href="" class="get-in-touch">Get in touch</a>
+        </li>      
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus
+          modi similique doloremque eum ad itaque. Nemo fugiat placeat, debitis
+          eum dolorum modi!
+        </p>
+      </div> 
+      <div class="item">
+        <address>
+            <a href=""><img class="icons-aside" src="img/icon-phone.svg" alt="phone logo">(000) 000-0000</a>
+            <a href=""><img class="icons-aside" src="img/icon-mail.svg"  alt="mail logo">informatio@untitled.tld</a>
+            <a href=""><img class="icons-aside" src="img/icon-direction.svg" alt="logo address">
+              <p class="address-text">1234 Somewhere Road #8254 Nashville, TN 00000-0000</p>
+            </a>
+          </address>
+      </div>
+    </aside> 
     <main>
       <section class="welcome-container">
         <article class="item">
@@ -159,11 +156,7 @@
         <div class="item item2">
           <article class="article-container item-reverse">
             <div class="item">
-              <img
-                class="img-services"
-                src="img/icon-roles.svg"
-                alt="Hours icon"
-              />
+              <img class="img-services" src="img/icon-roles.svg" alt="Hours icon"/>
             </div>
 
             <div class="item">
@@ -278,31 +271,42 @@
           </div>
           <h5>Contact area</h5>
           <div class="item checkbox-container">
-            <input class="checkbox" type="checkbox" id="human-resources" />
-            <label for="human-resources"><h5>Human Resources</h5></label>
-            <input class="checkbox" type="checkbox" id="system" />
-            <label for="system"><h5>System</h5></label>
-            <input class="checkbox" type="checkbox" id="commercial" />
-            <label for="commercial">Commercial</label>
+            <div class="checkbox-item">
+              <input class="checkbox" type="checkbox" id="human-resources" />
+              <label for="human-resources">
+                <h5>Human Resources</h5>
+              </label>
+            </div>
+            <div class="checkbox-item">
+              <input class="checkbox" type="checkbox" id="system" />
+              <label for="system">
+                <h5>System</h5>
+              </label>
+            </div>
+            <div class="checkbox-item">
+              <input class="checkbox" type="checkbox" id="commercial" />
+              <label for="commercial">
+                <h5>Commercial</h5>
+              </label>
+            </div>
           </div>
           <div class="item">
             <label for="message"><h5>Message</h5></label>
-            <textarea class="textarea" name="message" cols="30" rows="10" id="message">
-            </textarea>
-            <div class="btn-group">
-              <button class="btn-2">Reset</button>
-              <button class="btn-2 dark">Send</button>
-            </div>
+            <textarea class="textarea" name="message" id="message">
+            </textarea>            
           </div>
+          <div class="btn-group">
+              <button class="btn-2">Reset</button>
+              <button class="btn-2 btn-dark">Send</button>
+            </div>
         </form>
       </section>
 
-      <!--
-      <section class="section-5">
-        <img src="img/fill-img.jpg" alt="story img" />
-        <div class="text-1">
-          <h2>our story</h2>
-          <p>an easy system</p>
+      
+      <section class="story-container">        
+        <h3>our story</h3>
+        <div class="item text-story">
+          <h6>an easy system</h6>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
             est, eius blanditiis, nemo nihil dolorum sit et laborum iusto, quam
@@ -310,8 +314,11 @@
             obcaecati quibusdam voluptatibus!
           </p>
         </div>
-        <div class="text-2">
-          <p>an easy system</p>
+        <div class="item">
+          <img class="img-story" src="img/fill-img.jpg" alt="story img" />
+        </div>
+        <div class="item text-story">
+          <h6>an easy system</h6>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
             est, eius blanditiis, nemo nihil dolorum sit et laborum iusto, quam
@@ -320,65 +327,75 @@
           </p>
         </div>
       </section>
-      <section class="section-6">
-        <article class="list first">
-          <h4>Products</h4>
-          <ul>
+      
+      <section class="nav-container">
+        <article class="item">
+          <div>
+            <h4>Products</h4>
+          </div>
+          <ul class="list">
             <li>
-              <a href="">Functionalities</a>
+              <a class="link" href="">Functionalities</a>
             </li>
             <li>
-              <a href="">Downloads</a>
+              <a class="link" href="">Downloads</a>
             </li>
             <li>
-              <a href="">Integrations</a>
+              <a class="link" href="">Integrations</a>
             </li>
             <li>
-              <a href="">Extras</a>
+              <a class="link" href="">Extras</a>
             </li>
           </ul>
         </article>
-        <article class="list">
+        <article class="item">
           <h4>Company</h4>
-          <ul>
+          <ul class="list">
             <li>
-              <a href="">About us</a>
+              <a class="link" href="">About us</a>
             </li>
             <li>
-              <a href="">Clients</a>
+              <a class="link" href="">Clients</a>
             </li>
             <li>
-              <a href="">Resources</a>
+              <a class="link" href="">Resources</a>
             </li>
             <li>
-              <a href="">Blog</a>
+              <a class="link" href="">Blog</a>
             </li>
           </ul>
         </article>
-        <article class="list">
+        <article class="item">
           <h4>Support</h4>
-          <ul>
+          <ul class="list">
             <li>
-              <a href="">Help</a>
+              <a class="link" href="">Help</a>
             </li>
             <li>
-              <a href="">Tutorials</a>
+              <a class="link" href="">Tutorials</a>
             </li>
             <li>
-              <a href="">API</a>
+              <a class="link" href="">API</a>
             </li>
             <li>
-              <a href="">Contact</a>
+              <a class="link" href="">Contact</a>
             </li>
           </ul>
         </article>
-      </section> -->
-      -->
+      </section> 
+      
     </main>
-    <!-- <footer>
-      <img src="img/logos-media.svg" alt="logos social media" />
-      <p>Rosario, Argentina</p>
-      <p>Copyright © 2022 Radium Rocket. All rights reserved.</p>
-    </footer> -->
+    <footer class="footer-container">
+      <div class="item">
+        <img src="img/logo-tw-01.svg" alt="logo Twitter" />
+        <img src="img/logo-insta-01.svg" alt="logo Instagram" />
+        <img src="img/logo-in-01.svg" alt="logo Linkedin" />
+        <img src="img/logo-f-01.svg" alt="logo Facebook" />
+      </div>
+      <div class="item">
+        <p>Rosario, Argentina</p>
+        <p>Copyright © 2022 Radium Rocket. All rights reserved.</p>
+      </div>
+    </footer> 
   </body>
 </html>
