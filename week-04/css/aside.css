@@ -1,31 +1,26 @@
-.color {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  background: rgba(55, 56, 103, 0.69);
-  backdrop-filter: blur(5px);
-}
-
-.aside-container {
-  display: flex;
+aside {
+  display: none;
   justify-content: center;
   width: 100%;
-
-}
-
-aside {
   position: fixed;
   top: 88px;
-  display: flex;
   flex-direction: column;   
   justify-content: space-around;
-  width: 253px;
+  width: 20%;
   height: 509px;
   background-color: #dfe4de;
   margin-left: 20px;
   padding: 32px 27px 34px 32px; 
   font-size: 15px;  
   border-radius: 0px 0px 15px 15px;
+}
+
+.color {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  background: rgba(55, 56, 103, 0.69);
+  backdrop-filter: blur(5px);
 }
 
 .icons-aside {
@@ -35,4 +30,15 @@ aside {
 .address-container {
   display: flex;
   flex-direction: column;
+}
+
+.aside-container li, a{
+  margin-bottom: 18px;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 1024px)  {
+  aside {
+    display: flex;
+  }
 }

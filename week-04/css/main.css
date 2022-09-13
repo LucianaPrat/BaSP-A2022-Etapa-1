@@ -1,8 +1,19 @@
+.col {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.row {
+  display: flex;
+}
+
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  width: 100%;
+  margin-top: 100px;  
 }
 
 .logo-Trackgenix {
@@ -12,21 +23,19 @@ main {
 .img-welcome {
   width: 80%;
   border-radius: 6%;
+  padding: 0 30px;
 }
 
 .welcome-container {
-  display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   height: 450px;
 }
-
+/* 
 .welcome-container .item {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 0 30px;
-}
+} */
 
 h1 {
   color: #373867;
@@ -56,21 +65,10 @@ h2 {
   text-transform: uppercase;
 }
 
-.services-container {
-  display: flex;
+/* .services-container {
   align-items: center;
   justify-content: space-around;
-  flex-direction: column;
-}
-
-.services-container .item {
-  display: flex;
-  flex-direction: column;
-}
-
-.services-title {
-  align-self: flex-start;
-}
+}  */
 
 .item-left{
   align-self: flex-end;
@@ -81,20 +79,17 @@ h2 {
   width: 100%;
 }
 
-.article-container:nth-child(2) {
-  flex-direction: row-reverse;
-}
+
 
 .item-reverse {
   flex-direction: row-reverse;
 }
 
 .img-services {
-  width: 94px;
+  width: 30%;
 }
 
 .text-services {
-  flex-shrink: 1;
   padding-left: 5px;
   font-size: 12px;
 }
@@ -109,8 +104,6 @@ h3 {
 }
 
 .why-container {
-  display: flex;
-  flex-direction: column;
   align-items: stretch;
   align-items: center;
   margin: 20px;
@@ -144,8 +137,6 @@ h3 {
 }
 
 .info-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -154,13 +145,9 @@ form {
   flex-direction: column;
 }
 
-h5{
+h5 {
   font-size: 14px;
   font-weight: bold;
-}
-
-form .item {
-  width: 100%;
 }
 
 .input-container {
@@ -214,8 +201,6 @@ form .item {
 }
 
 .story-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -234,15 +219,12 @@ h6 {
 }
 
 .nav-container {
-  display: flex;
-  flex-direction: column;
   margin: 8px 200px 12px 57px;
   border-bottom: none;
 }
 
 .nav-container .item {
-  margin-left: 40px;
-  
+  margin-left: 40px;  
 }
 
 .nav-container h4 {
@@ -264,10 +246,11 @@ h6 {
 }
 
 
-@media only screen and (min-width: 480px) and (max-width: 768px) {
-  
+@media only screen and (min-width: 480px) {
+
   .main {
-    display: flex;
+    min-width: 480px;
+    max-width: 768px;
   }
 
   section{
@@ -277,8 +260,7 @@ h6 {
   .welcome-container{
     flex-wrap: wrap;
     height: 288px;   
-    margin-top: 0; 
-    justify-content: center;     
+    margin-top: 0;  
     padding: 0;  
   }
   
@@ -296,7 +278,7 @@ h6 {
   h2 {
     font-size: 10px;
   }
-  
+
   .text-welcome{
     width: 200px;
     height: 150px;
@@ -313,18 +295,22 @@ h6 {
   }
 
   .services-container {
-    align-content: center;
-    align-self: flex-start;
-    flex-wrap: wrap;
-    height: 301px ;
-  }   
+    height: 300px;
+  } 
 
-  .services-container .item:nth-child(4) {
-    margin-top: 45px;
+  .service-container {
+    width: 50%;
+    height: 100px;
   }
 
+  .services-container {
+    flex-wrap: wrap;
+    height: 301px ; 
+  }   
+ 
+
   .text-item {
-    width: 160px;
+    width: 60%;
   }
   
   .img-services {
@@ -392,4 +378,76 @@ h6 {
     justify-content: center;
     margin: 0;
   }
+
 }
+
+@media only screen and (min-width: 1024px)  {
+ main{
+  width: 70%;
+  margin-left: 30%;
+  margin-right: 10px;
+ }
+
+ .img-welcome {
+  width: 300px;
+  height: 200px;
+  object-fit: fill;
+ }
+
+ .services-container {
+  align-content: stretch;
+ }
+
+ .why-container {
+  flex-direction: row;
+  overflow: auto;
+ }
+
+ .article-why-container{
+  justify-content:center;
+  flex-wrap: wrap;
+  height: 350px;
+  align-items: center;
+  border: 0;   
+ }
+
+ .article-why-container .item:nth-of-type(1) {
+  order: 0;
+ }
+
+ .text-why {
+ padding-bottom: 0;
+ } 
+
+ form {
+  flex-direction: row;
+ }
+ 
+ h1{
+  font-size: 30px;
+ }
+
+ .story-container {
+  flex-direction: row;
+ }
+
+ .img-story2 {
+  display: none;
+ }
+
+ .input-info {
+  width: 80%;
+
+ }
+
+ .nav-container {
+  justify-content: space-between;
+ }
+  
+   
+ .text-welcome {
+  width: 40%;
+ }
+
+}
+
