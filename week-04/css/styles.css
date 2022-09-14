@@ -19,8 +19,16 @@ body {
   align-content: flex-start;
 }
 
+.col {
+  display: flex;
+  flex-direction: column;  
+}
+
+.row {
+  display: flex;
+}
+
 section {
-  background-color: aquamarine;
   border-bottom: solid 2px #373867;
 }
 

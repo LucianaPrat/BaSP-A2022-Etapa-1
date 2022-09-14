@@ -4,7 +4,6 @@
   align-items: center;
   text-align: center;
   border-top: 2px solid #373867;
-
 }
 
 .footer-container img {
@@ -12,18 +11,30 @@
   margin-top: 10px;
 }
 
-.footer-container .item {
+.info-copyright {
   margin-bottom:  15px;
 }
 
-.footer-container p{
+.footer-container p {
   margin-top: 10px;
   margin-bottom:  15px;
 }
 
 @media only screen and (min-width: 1024px)  {
-  footer{
+  footer {
    margin-left: 30%;
    margin-top: 2%;
   }
+
+  .logos-container img {
+    width: 50px;
+    padding-right: 5px;
+  }
+
+  .info-copyright {
+  font-size: 20px;
+  }
+
 }
+
+

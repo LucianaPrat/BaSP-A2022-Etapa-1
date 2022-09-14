@@ -12,6 +12,12 @@ Realization of an HTML of the previous assignment
 
 Create styles for the previous assignment
 
-## Authors
+## Week 04
+
+Flexbox implementation
+
+https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-04/index.html
+
+## Author
 
 - Luciana Prates Rodriguez

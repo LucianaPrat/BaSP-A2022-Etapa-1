@@ -22,6 +22,8 @@
 .icons-media img {
   display: none;
   width: 51px;
+  padding: 3px;
+
 }
 
 .arrow-icon {
@@ -41,6 +43,9 @@
    
   .icons-media {
     display: flex ;
+    justify-content: space-around;
+    padding-right: 20px;
+    padding-top: 10px;
   }
 
   .icons-media img {
@@ -55,11 +60,11 @@
   .logo-trackgenix-2 {
   display: inline;
   width: 230px;
+  padding-left: 52px;
   }
 
   .arrow-icon {
   display: none;
   }
-  
 
-   
+}
