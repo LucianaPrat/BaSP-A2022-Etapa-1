@@ -7,12 +7,15 @@
   background-color: #373867;
   border-radius: 0 0 5px 5px;
   width: 100%;
-  height: 88px;
-  top: 0px;
+  height: auto;
+}
+
+.logo-container {  
+  align-items: center;
 }
 
 .logo-trackgenix {
-  width: 314px;
+  width: 20%;
 }
 
 .logo-trackgenix-2 {
@@ -23,27 +26,36 @@
   display: none;
   width: 51px;
   padding: 3px;
-
 }
 
 .arrow-icon {
   width: 20px;
 }
 
-@media only screen and (min-width: 480px)  {
+.arrow-icon-2 {
+  display: none;
+}
+
+@media only screen and (min-width: 480px) {
 
   .header-container {
-    flex-direction: row;
-    justify-content: space-between;    
+    width: 100%;
   }
   
   .header-container .item {
     margin: 20px 20px;
   }
    
+  .logo-container {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;    
+  }
+
   .icons-media {
     display: flex ;
     justify-content: space-around;
+    width: 50%;
     padding-right: 20px;
     padding-top: 10px;
   }
@@ -53,18 +65,28 @@
   }
 
   .logo-trackgenix {
-  display: none;
-  
+  display: none;  
   }
 
   .logo-trackgenix-2 {
   display: inline;
   width: 230px;
   padding-left: 52px;
+  width: 60%;
   }
 
   .arrow-icon {
   display: none;
   }
 
+ .arrow-icon-2 {
+  width: 30px;
+  display: inline;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  .arrow-icon-2 {
+    display: none;
+  }
 }

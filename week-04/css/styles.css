@@ -14,11 +14,6 @@ body {
   font-size: 12px;
 }
 
-.general-container {
-  display: flex; 
-  align-content: flex-start;
-}
-
 .col {
   display: flex;
   flex-direction: column;  
@@ -29,6 +24,7 @@ body {
 }
 
 section {
+  width: 100%;
   border-bottom: solid 2px #373867;
 }
 
@@ -36,8 +32,13 @@ h4 {
   width: 100%;
   padding-top: 5px;
   border-bottom: solid 1px #373867;
+  margin-bottom: 10px;
   font-family: "Roboto-Black";
   font-size: 0.938rem;
   font-weight: bold;
+}
+
+a {
+  text-decoration: none;
 }
 

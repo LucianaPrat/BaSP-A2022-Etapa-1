@@ -14,21 +14,24 @@
   </head>
   <body>
     <header class="header-container">
-      <div>
-        <img class="logo-trackgenix" src="img/logo-trackgenix.svg" alt="Trackgenix logo">
-        <img class="logo-trackgenix-2" src="img/logo-trackgenix-2.svg" alt="Trackgenix logo">
+      <div class="logo-container col">
+        <div>
+          <img class="logo-trackgenix" src="img/logo-trackgenix.svg" alt="Trackgenix logo">
+          <img class="logo-trackgenix-2" src="img/logo-trackgenix-2.svg" alt="Trackgenix logo">
+        </div>
+        <div>
+          <span class="icons-media">
+            <a href=""><img src="img/logo-twitter.svg" alt="Twiter logo"></a>
+            <a href=""><img src="img/logo-instagram.svg" alt="Instagram logo"></a>
+            <a href=""><img src="img/logo-linkedin.svg" alt="Linkedin logo"></a>
+            <a href=""><img src="img/logo-facebook.svg" alt="Facebook logo"></a>
+          </span>
+        </div>
+        <img class="arrow-icon" src="./img/icon-arrow.svg" alt="arrow">
       </div>
-      <div>
-        <span class="icons-media">
-          <a href=""><img src="img/logo-twitter.svg" alt="Twiter logo"></a>
-          <a href=""><img src="img/logo-instagram.svg" alt="Instagram logo"></a>
-          <a href=""><img src="img/logo-linkedin.svg" alt="Linkedin logo"></a>
-          <a href=""><img src="img/logo-facebook.svg" alt="Facebook logo"></a>
-        </span>
-      </div>
-      <img class="arrow-icon" src="./img/icon-arrow.svg" alt="arrow">
+      <img class="arrow-icon-2" src="./img/icon-arrow.svg" alt="arrow">
     </header>
-    <div class="general-container">
+    <div class="general-container row">
       <aside>         
         <div class="aside-container">
           <h4>Menu</h4>
@@ -47,7 +50,7 @@
             </li>          
           </ul>
         </div>  
-        <div class="item">
+        <div class="informatio-container">
           <h4>Get in touch</h4> 
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus
@@ -55,11 +58,11 @@
             eum dolorum modi!
           </p>
         </div> 
-        <div class="item">
+        <div>
           <address>
             <div class="address-container">
-                <a href=""><img class="icons-aside" src="img/icon-phone.svg" alt="phone logo">(000) 000-0000</a>
-                <a href=""><img class="icons-aside" src="img/icon-mail.svg"  alt="mail logo">informatio@untitled.tld</a>
+                <a class="row" href=""><img class="icons-aside" src="img/icon-phone.svg" alt="phone logo">(000) 000-0000</a>
+                <a class="row" href=""><img class="icons-aside" src="img/icon-mail.svg"  alt="mail logo">informatio@untitled.tld</a>
                 <a class="row" href=""><img class="icons-aside" src="img/icon-direction.svg" alt="logo address">
                   <p class="address-text">1234 Somewhere Road #8254 Nashville, TN 00000-0000</p>
                 </a>
@@ -70,7 +73,7 @@
       <main class="col">
         <section class="welcome-container col">
           <h1><span class="trackgenix-title">Trackgenix</span>by RadiumRocket</h1>
-          <div class="text-welcome col">
+          <div class="text-welcome">
             <h2>an easy system to track your team's times and proyects</h2>
             <p >
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -107,7 +110,7 @@
               </div>
             </article>        
             <article class="service-container row">
-              <img class="img-services" src="img/icon-hours.svg" alt="Hours icon">
+              <img class="img-services" src="img/icon-resources.svg" alt="Hours icon">
               <div class="text-item">
                 <h4>Resources Managment</h4>
                 <p class="text-services">
@@ -126,6 +129,7 @@
                   dolore. Proin aliquam facilisis ante interdum. Sed nulla amet
                   lorem feugiat tempus aliquam.
                 </p>
+              </div>  
             </article>
           </div>   
         </section>
@@ -148,9 +152,7 @@
               </div>
             </article>
             <article class="article-why-container row">
-              <div>
-                <img class="why-img" src="img/fill-img.jpg" alt="Work tracebility img">
-              </div>
+              <img class="why-img" src="img/fill-img.jpg" alt="Work tracebility img">
               <div>
                 <h4>Work tracebilityt</h4>
                 <p class="text-why">
@@ -165,9 +167,7 @@
               </div>
             </article>
             <article class="article-why-container row">
-              <div>
-                <img class="why-img" src="img/fill-img.jpg" alt="Leadership and teamwork">
-              </div>
+              <img class="why-img" src="img/fill-img.jpg" alt="Leadership and teamwork">
               <div>
                 <h4>Leadership and teamwork</h4>
                 <p class="text-why">
@@ -182,9 +182,7 @@
               </div>
             </article>
             <article class="article-why-container row">
-              <div>
-                <img class="why-img" src="img/fill-img.jpg" alt="Decision making img">
-              </div>
+              <img class="why-img" src="img/fill-img.jpg" alt="Decision making img">
               <div>
                 <h4>Decision making</h4>
                 <p class="text-why">
@@ -203,41 +201,41 @@
         <section>
           <h3>request system information</h3>
           <form class="info-container col">
-            <div>
-              <div>
+            <div class="inputs-container col">
+              <div class="col">
                 <label for="name">Name</label>
                 <input class="input-info" type="text" id="name">
               </div>
-              <div>
+              <div class="col">
                 <label for="email">Email</label>
                 <input class="input-info" type="text" id="email"> 
               </div>
-              <h5>Contact area</h5>
-              <div class="checkbox-container">
+              Contact area
+              <div class="checkbox-container row">
                 <div class="row">
                   <input class="checkbox" type="checkbox" id="human-resources">
                   <label for="human-resources">
-                    <h5>Human Resources</h5>
+                    Human Resources
                   </label>
                 </div>
                 <div class="row">
                   <input class="checkbox" type="checkbox" id="system">
                   <label for="system">
-                    <h5>System</h5>
+                    System
                   </label>
                 </div>
                 <div class="row">
                   <input class="checkbox" type="checkbox" id="commercial">
                   <label for="commercial">
-                    <h5>Commercial</h5>
+                    Commercial
                   </label>
                 </div>
               </div> 
             </div> 
-            <div>
+            <div class="textarea-container col">
               <div>
                 <label for="message">
-                  <h5>Message</h5>
+                  <p>Message</p>
                 </label>
                 <textarea class="textarea" name="message" id="message">
                 </textarea>                        
@@ -246,10 +244,10 @@
                 <button class="btn-2">Reset</button>
                 <button class="btn-2 btn-dark">Send</button>
               </div>
-             </div> 
+            </div> 
           </form>
         </section>
-        <section class="col">               
+        <section>               
           <h3>our story</h3>
           <div class="story-container col"> 
             <div class="content-story col">        
@@ -264,7 +262,7 @@
               </div>
               <img class="img-story" src="img/fill-img.jpg" alt="story img">    
             </div>   
-            <div class="content-story col">                 
+            <div class="content-story">                 
               <div class="text-story-bottom text-story">
                 <h6>an easy system</h6>
                 <p>
@@ -278,7 +276,7 @@
             </div>           
           </div>  
         </section>        
-        <section class="nav-container col">
+        <section class="nav-container">
           <article>
           <h4>Products</h4>
           <ul class="list">

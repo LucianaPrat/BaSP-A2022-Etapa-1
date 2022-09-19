@@ -1,9 +1,5 @@
 .footer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
-  border-top: 2px solid #373867;
 }
 
 .footer-container img {
@@ -20,10 +16,11 @@
   margin-bottom:  15px;
 }
 
-@media only screen and (min-width: 1024px)  {
-  footer {
-   margin-left: 30%;
-   margin-top: 2%;
+@media only screen and (min-width: 1024px) {
+
+  .footer-container{
+    margin-left: 28%;
+    margin-right: 2.1%;
   }
 
   .logos-container img {
@@ -32,7 +29,7 @@
   }
 
   .info-copyright {
-  font-size: 20px;
+    font-size: 20px;
   }
 
 }

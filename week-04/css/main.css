@@ -1,6 +1,4 @@
 main {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   width: 100%;
   margin-top: 100px;  
@@ -17,6 +15,7 @@ main {
 }
 
 .welcome-container {
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   height: 450px;
@@ -54,13 +53,12 @@ h2 {
   align-self: flex-end;
 }
 
-.article-container {
-  display: flex;
-  width: 100%;
-}
-
 .item-reverse {
   flex-direction: row-reverse;
+}
+
+.services-container {
+  padding: 6%;
 }
 
 .img-services {
@@ -84,7 +82,6 @@ h3 {
 .why-container {
   align-items: center;
   margin: 20px;
-  border-bottom: 1px solid #373867;
 }
 
 .why-container h3 {
@@ -110,26 +107,18 @@ h3 {
   padding-bottom: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-h5 {
+h5 , label {
   font-size: 14px;
   font-weight: bold;
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
+.info-container {
+  margin: 5%  10%;
 }
 
 .checkbox-container {
-  display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 341px;
+  width: 80%;
 }
 
 .checkbox {
@@ -143,6 +132,11 @@ h5 {
   border-bottom: 1px solid #373867;
   text-decoration: underline;
   margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.textarea-container {
+  margin-top: 20px;
 }
 
 .btn-2 {
@@ -151,13 +145,17 @@ h5 {
   width: 109px;
 }
 
+.inputs-container {
+  padding-bottom: 20px;
+}
+
 .btn-dark {
   color: white;
   background-color: #373867;
 }
 
 .textarea { 
-  width: 80%;
+  width: 100%;
   height: 130px;
 }
 
@@ -168,8 +166,6 @@ h5 {
 }
 
 .story-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -183,22 +179,16 @@ h6 {
 }
 
 .text-story, .img-story {
-  width: 383px;
+  width: 90%;
   margin-bottom: 20px;
 }
 
 .nav-container {
-  margin: 8px 200px 12px 57px;
-  border-bottom: none;
-}
-
-.nav-container .item {
-  margin-left: 40px;  
+  padding-left: 40%;
 }
 
 .nav-container h4 {
  display: inline; 
-
 }
 
 .list {
@@ -214,20 +204,13 @@ h6 {
     margin-top: 5px;
 }
 
-
 @media only screen and (min-width: 480px) {
-
-  .main {
-    min-width: 480px;
-    max-width: 768px;
-  }
 
   section { 
     width: 100%;
   }
 
   .welcome-container {
-    flex-wrap: wrap;
     height: 288px;   
     margin-top: 0;  
     padding: 0;  
@@ -249,23 +232,15 @@ h6 {
   }
 
   .text-welcome {
-    width: 200px;
+    width: 40%;
     height: 150px;
     font-size: 15px;
     padding: 0;  
   }
-
-  .welcome-container .item {
-    padding: 0;
-  }
-
+  
   .item-reverse {
     flex-direction: row;
   }
-
-  .services-container {
-    height: 300px;
-  } 
 
   .service-container {
     width: 50%;
@@ -273,8 +248,9 @@ h6 {
   }
 
   .services-container {    
+    flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
-    height: 301px ; 
     padding-left: 36px;
   }   
  
@@ -288,7 +264,10 @@ h6 {
   
   .why-img {
     display: inline;
-    height: 158px;
+    order: 1;
+    width: 30%;
+    height: 140px;
+    margin-top: 2%;
   }
 
   .article-why-container {
@@ -305,16 +284,16 @@ h6 {
   .story-container {
     flex-wrap: wrap;
     height: 361px;
-    width: 100%;
     font-size: 15px;
   }
 
   .content-story {
+    justify-content: center;
     flex-direction: row;
   }
 
   .img-story {
-    width: 162px;
+    width: 30%;
     height: 134px;
     align-content: space-between
   }
@@ -324,23 +303,25 @@ h6 {
   }
   
   .img-story2  {
-    display: inline;
-    width: 162px;
     height: 134px;
     align-content: space-between
   }
 
   .text-story-bottom {
     order: 1;
-    width: 246px;
+    width: 50%;
     text-align: right;
     margin-top: 20px; 
   }
 
   .info-container {
     padding-left: 0;
-  }  
+  } 
 
+  .textarea-container {
+    width: 100%;
+  }
+  
   .nav-container {
     flex-direction: row;
     justify-content: space-around;
@@ -349,91 +330,83 @@ h6 {
   }  
 
   .text-story {
-    width: 383px;
+    width: 60%;
   }
 
 }
 
-@media only screen and (min-width: 1024px)  {
- main{
-  width: 70%;
-  margin-left: 30%;
-  margin-right: 10px;
- }
+@media only screen and (min-width: 1024px) {
 
- .img-welcome {
-  width: 300px;
-  height: 200px;
-  object-fit: fill;
- }
+  main{
+    width: 70%;
+  }
 
- .services-container {
-  height: 293px;
-  justify-content: space-around;
- }
+  .img-welcome {
+    width: 300px;
+    height: 200px;
+    object-fit: fill;
+  }
+  
+  .why-container {
+    flex-direction: row;
+    overflow: auto;
+    margin: 0;
+  }
 
- .why-container {
-  flex-direction: row;
-  overflow: auto;
-  margin: 0;
- }
+  .article-why-container{
+    justify-content:center;
+    flex-wrap: wrap;
+    height: 350px;
+    align-items: center;
+    border: 0;   
+  }
 
- .article-why-container{
-  justify-content:center;
-  flex-wrap: wrap;
-  height: 350px;
-  align-items: center;
-  border: 0;   
- }
+  .article-why-container .item:nth-of-type(1) {
+    order: 0;
+  }
 
- .article-why-container .item:nth-of-type(1) {
-  order: 0;
- }
+  .text-why {
+    padding-bottom: 0;
+  } 
 
- .text-why {
- padding-bottom: 0;
- } 
+  .why-img {
+    order: 0;
+    width: 80%;
+    padding-bottom: 5%;
+  }
 
- form {
-  flex-direction: row;
- }
+  form {
+    flex-direction: row;
+  }
 
- .info-container {
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 20px;
- }
+  .info-container {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+  }
 
- .textarea{
-  width: 354px;
- }
- 
- h1{
-  font-size: 30px;
- }
+  .textarea{
+    width: 354px;
+  }
+  
+  h1{
+    font-size: 30px;
+  }
 
- .input-info {
-  width: 80%;
- } 
+  .input-info {
+    width: 80%;
+  } 
 
- .nav-container {
-  justify-content: space-around;
- }     
- 
- .text-welcome {
+  .nav-container {
+    justify-content: space-around;
+  }     
+  
+  .text-welcome {
     width: 40%;
   } 
 
   .img-story2 {
     display: none;
-  }
-
-  .story-container{
-    align-items: flex-start;
-  } 
-
-  .content-story {
-    padding-left: 160px;
   }
 
   .text-story-bottom {
