@@ -14,16 +14,19 @@ main {
   padding: 0 30px;
 }
 
+.text-welcome {
+  margin: 3%;
+}
+
 .welcome-container {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  height: 450px;
 }
 
 h1 {
   color: #373867;
-  font-size: 1.563rem;
+  font-size: 40px;
   text-align: center;
 }
 
@@ -103,7 +106,7 @@ h3 {
 }
 
 .text-why {
-  width: 300px;
+  width: 90%;
   padding-bottom: 20px;
 }
 
@@ -169,7 +172,11 @@ h5 , label {
   align-items: center;
 }
 
-.img-story2 {
+.content-story {
+  align-items: center;
+}
+
+.img-story-2 {
   display: none;
 }
 
@@ -184,14 +191,21 @@ h6 {
 }
 
 .nav-container {
-  padding-left: 40%;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .nav-container h4 {
  display: inline; 
 }
 
+.nav-list {
+  width: 50%;
+  margin-left: 20%;
+}
+
 .list {
+  margin-bottom: 20px;
   margin-left: 40px; 
   list-style: disc;
 }
@@ -281,6 +295,10 @@ h6 {
     width: 100%;
   }
 
+  .why-content {
+    width: 50%;
+  }
+
   .story-container {
     flex-wrap: wrap;
     height: 361px;
@@ -292,19 +310,18 @@ h6 {
     flex-direction: row;
   }
 
-  .img-story {
+  .img-story, .img-story-2 {
     width: 30%;
     height: 134px;
-    align-content: space-between
+    align-content: space-between;
   }
 
   .text-story {
     margin-bottom: 30px;    
   }
   
-  .img-story2  {
-    height: 134px;
-    align-content: space-between
+  .img-story-2 {
+    display: inline;
   }
 
   .text-story-bottom {
@@ -337,7 +354,7 @@ h6 {
 
 @media only screen and (min-width: 1024px) {
 
-  main{
+  main {
     width: 70%;
   }
 
@@ -353,7 +370,7 @@ h6 {
     margin: 0;
   }
 
-  .article-why-container{
+  .article-why-container {
     justify-content:center;
     flex-wrap: wrap;
     height: 350px;
@@ -366,6 +383,7 @@ h6 {
   }
 
   .text-why {
+    width: 300px;
     padding-bottom: 0;
   } 
 
@@ -373,6 +391,10 @@ h6 {
     order: 0;
     width: 80%;
     padding-bottom: 5%;
+  }
+
+  .why-content {
+    width: 100%;
   }
 
   form {
@@ -385,11 +407,11 @@ h6 {
     padding: 20px;
   }
 
-  .textarea{
+  .textarea {
     width: 354px;
   }
   
-  h1{
+  h1 {
     font-size: 30px;
   }
 
@@ -405,7 +427,7 @@ h6 {
     width: 40%;
   } 
 
-  .img-story2 {
+  .img-story-2 {
     display: none;
   }
 
