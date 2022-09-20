@@ -16,7 +16,14 @@ Create styles for the previous assignment
 
 Flexbox implementation
 
-https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-04/index.html
+[Flexbox]
+(https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-04/index.html)
+
+## Week 05
+
+Realization of six blocks of Js exercises.
+
+Improvements from the previous Flexbox premise.
 
 ## Author
 
