@@ -1,0 +1,37 @@
+.footer-container {
+  text-align: center;
+}
+
+.footer-container img {
+  width: 30px;
+  margin-top: 10px;
+}
+
+.info-copyright {
+  margin-bottom: 15px;
+}
+
+.footer-container p {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .footer-container {
+    margin-left: 28%;
+    margin-right: 2.1%;
+  }
+
+  .logos-container img {
+    width: 50px;
+    padding-right: 5px;
+  }
+
+  .info-copyright {
+    font-size: 20px;
+  }
+
+}
+
+
