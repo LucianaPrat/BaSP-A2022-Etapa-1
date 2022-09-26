@@ -28,6 +28,11 @@ section {
   border-bottom: solid 2px #373867;
 }
 
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
 h4 {
   width: 100%;
   padding-top: 5px;
@@ -50,4 +55,34 @@ a {
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.btn-green {
+    width: 80%;
+    background-color: #AACE9B;
+    border-radius: 3px;
+    border: none;
+    color: #373867;
+}
+
+.blue-border {
+    outline: 2px solid #373867;
+}
+
+.blue-ligth-border {
+    outline: 1px solid #6869b1;
+}
+
+.green-border {
+    outline: 2px solid #AACE9B
+}
+
+.red-border {
+    outline: 2px solid #bf4844 ;
+}
+
+.alert{
+    font-size: 10px;
+    color: #bf4844;
+    margin-left: 2%;
 }

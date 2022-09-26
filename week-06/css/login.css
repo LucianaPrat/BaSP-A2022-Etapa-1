@@ -3,11 +3,6 @@
     width: 70%;
 }
 
-h1 {
-    font-size: 40px;
-    font-weight: bold;
-}
-
 .icons-login {
     width: 5%;
     margin-right: 10%;
@@ -22,15 +17,8 @@ h1 {
 }
 
 .inputs-login {
-    border: 0
-}
-
-.btn-green {
-    width: 80%;
-    background-color: #AACE9B;
-    border-radius: 3px;
-    border: none;
-    color: #373867;
+    border: 0;
+    padding: 5px 10%;
 }
 
 .img-login-container{
@@ -47,10 +35,9 @@ h1 {
     border-bottom: 1px solid #373867;
 }
 
-.checkbox-container{
+.checkbox-container {
     align-items: center;
 }
-
 
 @media only screen and (min-width: 1024px) {
 

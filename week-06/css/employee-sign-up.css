@@ -1,0 +1,25 @@
+.register-employee-container {
+   align-items: center;
+   justify-content: space-evenly;
+   margin-top: 100px;
+   width: 70%;
+   border: 1px solid  #373867;
+}
+
+.form-register-employee {    
+   width: 70%;  
+   justify-content: space-around;
+   height: 300px;
+}
+
+.form-container {
+   justify-content: space-evenly;
+}
+
+.label-register {
+   font-weight: bold;
+}
+
+.btn-green {
+   width: 50%;
+}
