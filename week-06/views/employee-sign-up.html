@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />    
     <link rel="stylesheet" href="../css/aside.css" />
-    <link rel="stylesheet" href="../css/employee-sign-up.css">         
-    <!-- <script src="../javascript/login.js"></script>  -->
+    <link rel="stylesheet" href="../css/employee-sign-up.css"> 
     <script src="../javascript/employee-sign-up.js"></script>
     <title>Document</title>
 </head>
@@ -74,50 +73,67 @@
         </aside> 
         <div class="register-employee-container col">
             <h1>Register</h1>
-            <div class="form-register-employee row"> 
+            <div class="form-register-employee col"> 
                 <div class="form-container col">
                     <div class="col">
                         <label for="first-name">First Name</label>
                         <input class="inputs-register input-first-name" type="text">
+                        <div class="alert-name"></div>
                     </div> 
                     <div class="col">
                         <label for="email">Email</label> 
                         <input class="inputs-register input-email" type="text">
+                        <div class="alert-email"></div>
                     </div> 
                     <div class="col">
                         <label for="date-birth">Date birth</label> 
-                        <input class="inputs-register input-date-birth" type="text">  
+                        <input class="inputs-register input-date-birth">  
+                        <div class="alert-date-birth"></div>
                     </div>
                     <div class="col">
                         <label for="address">Address</label> 
                         <input class="inputs-register input-address" type="text">  
+                        <div class="alert-address"></div>
                     </div>
                     <div class="col">
                         <label for="password">Password</label> 
-                        <input class="inputs-register input-password" type="password"> 
+                        <input class="inputs-register input-password" value="">
+                        <div class="alert-password"></div> 
                     </div>
+                    <div class="col">
+                        <label for="repeat-password">Repeat password</label> 
+                        <input class="inputs-register input-reapeat-password">
+                        <div class="alert-repeat-password"></div> 
+                    </div> 
+                     
                 </div>  
                 <div class="form-container col"> 
                     <div class="col">
                         <label class="label-register"for="last-name">Last Name</label>
                         <input class="inputs-register input-last-name" type="text"> 
+                        <div class="alert-last-name"></div>
                     </div>
                     <div class="col">
                         <label for="dni">DNI</label> 
                         <input class="inputs-register input-dni" type="text">
+                        <div class="alert-dni"></div>
                     </div>
                     <div class="col">
                         <label for="phone">Phone</label> 
-                        <input class="inputs-register input-phone">  
+                        <input class="inputs-register input-phone">
+                        <div class="alert-phone"></div>  
                     </div> 
                     <div class="col">
                         <label for="postal-code">Postal Code</label> 
                         <input class="inputs-register input-postal-code" type="number">  
+                        <div class="alert-postal-code"></div>
                     </div> 
                     <div class="col">
-                        <label for="repeat-password">Repeat password</label> 
-                        <input class="inputs-register" type="password">
-                    </div> 
+                        <label class="label-register"for="location">Location</label>
+                        <input class="inputs-register input-location" type="text"> 
+                        <div class="alert-location"></div>
+                    </div>
+                    
                 </div>         
             </div>
             <button class="btn btn-green register-button" type="submit">Log in</button>

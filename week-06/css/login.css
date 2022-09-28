@@ -1,4 +1,9 @@
 .log-in-container {
+    margin-top: 150px;
+    margin-left: 100px;
+}
+
+.log-in-container {
     align-items: center;
     width: 70%;
 }
@@ -41,6 +46,10 @@
 
 @media only screen and (min-width: 1024px) {
 
+    .log-in-container {
+        margin-top: 0;
+        margin-left: 0;
+    }    
     .img-login-container{
         display: inline;
         width: 30%;

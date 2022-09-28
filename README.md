@@ -26,6 +26,12 @@ Improvements from the previous Flexbox premise.
 
 [Link to Js exercises](https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-05/index.html)
 
+## Week 06
+
+Creation of Login and Signup sections for employees.
+[Link Login](https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-06/login.html)
+[Link Signup](https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-06/employee-sign-up.html)
+
 ## Author
 
 - Luciana Prates Rodriguez

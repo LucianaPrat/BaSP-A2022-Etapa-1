@@ -1,70 +1,115 @@
-window.onload = function(){
+window.onload = function() {
 
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
-    var inputMail = document.getElementsByClassName('input-mail')[0];    
-    var inputPass = document.getElementsByClassName('input-pass')[0];
-    
+    var inputEmail = document.getElementsByClassName('input-email')[0];    
+    var inputPassword = document.getElementsByClassName('input-password')[0];
+
+    var alertEmail = "<p>Your email has an error</p>";
+    var alertPassword = "<p>Your pass has an error</p>";
+        
+    var paragraphEmail = document.getElementsByClassName('alert-email')[0]; 
+    var paragraphPassword = document.getElementsByClassName('alert-password')[0];   
+
     var submitButton = document.getElementsByClassName('submit-button')[0];
 
-    var alertCostumMail = "<p>Your email has an error</p>";
-    var alertCostumPass = "<p>Your pass has an error</p>";
-    var inputAlertMail = document.getElementsByClassName('alert')[0]; 
-    var inputAlertPass = document.getElementsByClassName('alert')[1];   
-
-    inputMail.onfocus = function() {
-        inputOnFocus(inputMail);
+    inputEmail.onfocus = function() {
+        inputOnFocus(inputEmail);
     }
 
-    inputMail.onblur = function() {
-        inputOnBlur(inputMail);
-        validateMail();
+    inputEmail.onblur = function() {
+        inputOnBlur(inputEmail);
+        validateEmail(inputEmail);
     }
 
-    inputPass.onfocus = function() {
-        inputOnFocus(inputPass);
+    inputPassword.onfocus = function() {
+        inputOnFocus(inputPassword);
     }
 
-    inputPass.onblur = function() {
-        inputOnBlur(inputPass);
-        validatePass();
+    inputPassword.onblur = function() {
+        inputOnBlur(inputPassword);
+        validatePassword(inputPassword);
     } 
 
     submitButton.onclick = function() {        
-        validatePass();
-        if((validateMail() && validatePass()) === true){
-            window.location.href='index.html'
-        }        
+        validateForm();            
     }
 
-   function validateMail(){
-        var validation
-        if(emailExpression.test(inputMail.value)){            
-            inputMail.classList.remove('red-border');
-            inputMail.classList.add('green-border');
-            inputAlertMail.innerHTML = '';
+    function inputOnFocus(data) {
+        data.classList.add('blue-border');
+    }
+
+    function inputOnBlur(data) {
+        data.classList.remove('blue-border');
+    }   
+
+   function validateEmail(data) {
+        var validation;
+        if(emailExpression.test(data.value) === true) {            
+            data.classList.remove('red-border');
+            data.classList.add('green-border');
+            paragraphEmail.innerHTML = '';
             validation = true;
-        }else{ 
-            inputMail.classList.add('red-border');
-            inputAlertMail.innerHTML = alertCostumMail; 
+        } else { 
+            data.classList.add('red-border');
+            paragraphEmail.innerHTML = alertEmail; 
             validation = false;
         }
-        return validation
+        return validation;
     } 
 
-    function validatePass(){
-        var validation
-        if((inputPass.value.length > 6 ) && (inputPass.value.length < 10)){
-            inputPass.classList.remove('red-border');
-            inputPass.classList.add('green-border');            
-            inputAlertPass.innerHTML = '';
+    function validatePassword(data) {
+        var resultValidateStringLength = validateStringLength(data,8);
+        var resulthasNumAndWord = hasNumAndWord(data.value);
+        var validation;
+        if((resultValidateStringLength && resulthasNumAndWord) === true) {
+            data.classList.remove('red-border');
+            data.classList.add('green-border');            
+            paragraphPassword.innerHTML = ''; 
             validation = true;
-        }else{ 
-            inputPass.classList.remove('green-border');
-            inputPass.classList.add('red-border');
-            inputAlertPass.innerHTML = alertCostumPass; 
+        } else { 
+            data.classList.remove('green-border');
+            data.classList.add('red-border');
+            paragraphPassword.innerHTML = alertPassword;
             validation = false;
         }
-        return validation
+        return validation;
+    } 
+
+    function validateStringLength(data,allowedValue) {
+        var validation = false;
+        if(data.value.length >= allowedValue) {
+            validation = true;
+        }
+        return  validation;
+    } 
+
+    function hasNumAndWord(string) {
+        var isNum = false;
+        var isWord = false;
+        var result;
+        for(let i = 0; i < string.length; i++) {
+            if(isNaN(parseInt(string[i])) === true) {
+               isWord = true; 
+            }
+        }
+        for(let i = 0; i < string.length; i++) {
+            if(isNaN(parseInt(string[i])) === false) {
+                isNum = true;
+            }
+        }
+        result = isNum && isWord;
+        return result;
+    }
+
+    function validateForm() {
+        var validationEmailresult = validateEmail(inputEmail);
+        var validationPassword = validatePassword(inputPassword);
+         if(validationEmailresult && validationPassword === true) {
+            alert('User entered ' + inputEmail.value + 'the password is ' + inputPassword.value);
+            window.location.href='index.html';
+        } else {
+            alert('Sorry we couldnt complete your sign up: Error or missing fields.');
+        }
     }
 }
