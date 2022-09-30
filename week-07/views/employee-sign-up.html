@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />    
+    <link rel="stylesheet" href="../css/aside.css" />
+    <link rel="stylesheet" href="../css/employee-sign-up.css"> 
+    <script src="../javascript/employee-sign-up.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-container">
+      <div class="logo-container col">
+        <div>
+          <img class="logo-trackgenix" src="../img/logo-trackgenix.svg" alt="Trackgenix logo">
+          <img class="logo-trackgenix-2" src="../img/logo-trackgenix-2.svg" alt="Trackgenix logo">
+        </div>
+        <div>
+          <span class="icons-media">
+            <a href=""><img src="../img/logo-twitter.svg" alt="Twiter logo"></a>
+            <a href=""><img src="../img/logo-instagram.svg" alt="Instagram logo"></a>
+            <a href=""><img src="../img/logo-linkedin.svg" alt="Linkedin logo"></a>
+            <a href=""><img src="../img/logo-facebook.svg" alt="Facebook logo"></a>
+          </span>
+        </div>
+        <img class="arrow-icon" src="../img/icon-arrow.svg" alt="arrow">
+      </div>
+      <img class="arrow-icon-2" src="../img/icon-arrow.svg" alt="arrow">
+    </header>
+    <div class="general-container row">
+        <aside>         
+        <div class="aside-container">
+          <h4>Menu</h4>
+          <ul>              
+            <li>
+              <a href="../views/index.html">Home</a>
+            </li>
+            <li>
+              <a href="">Sign up</a>
+            </li>
+            <li>
+              <a href="../views/login.html">Sign in</a>
+            </li>
+            <li>
+              <a href="">About us</a>
+            </li>          
+          </ul>
+        </div>  
+        <div class="informatio-container">
+          <h4>Get in touch</h4> 
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus
+            modi similique doloremque eum ad itaque. Nemo fugiat placeat, debitis
+            eum dolorum modi!
+          </p>
+        </div> 
+        <div>
+          <address>
+            <div class="address-container">
+                <a class="row" href=""><img class="icons-aside" src="../img/icon-phone.svg" alt="phone logo">(000) 000-0000</a>
+                <a class="row" href=""><img class="icons-aside" src="../img/icon-mail.svg"  alt="mail logo">informatio@untitled.tld</a>
+                <a class="row" href=""><img class="icons-aside" src="../img/icon-direction.svg" alt="logo address">
+                  <p class="address-text">1234 Somewhere Road #8254 Nashville, TN 00000-0000</p>
+                </a>
+              </div>
+          </address>
+        </div>
+        </aside> 
+        <div class="register-employee-container col">
+            <h1>Register</h1>
+            <div class="form-register-employee col"> 
+                <div class="form-container col">
+                    <div class="col">
+                        <label for="first-name">First Name</label>
+                        <input class="inputs-register input-first-name" type="text">
+                        <div class="alert-name"></div>
+                    </div> 
+                    <div class="col">
+                        <label for="email">Email</label> 
+                        <input class="inputs-register input-email" type="text">
+                        <div class="alert-email"></div>
+                    </div> 
+                    <div class="col">
+                        <label for="date-birth">Date birth</label> 
+                        <input class="inputs-register input-date-birth">  
+                        <div class="alert-date-birth"></div>
+                    </div>
+                    <div class="col">
+                        <label for="address">Address</label> 
+                        <input class="inputs-register input-address" type="text">  
+                        <div class="alert-address"></div>
+                    </div>
+                    <div class="col">
+                        <label for="password">Password</label> 
+                        <input class="inputs-register input-password" value="">
+                        <div class="alert-password"></div> 
+                    </div>
+                    <div class="col">
+                        <label for="repeat-password">Repeat password</label> 
+                        <input class="inputs-register input-reapeat-password">
+                        <div class="alert-repeat-password"></div> 
+                    </div> 
+                     
+                </div>  
+                <div class="form-container col"> 
+                    <div class="col">
+                        <label class="label-register"for="last-name">Last Name</label>
+                        <input class="inputs-register input-last-name" type="text"> 
+                        <div class="alert-last-name"></div>
+                    </div>
+                    <div class="col">
+                        <label for="dni">DNI</label> 
+                        <input class="inputs-register input-dni" type="text">
+                        <div class="alert-dni"></div>
+                    </div>
+                    <div class="col">
+                        <label for="phone">Phone</label> 
+                        <input class="inputs-register input-phone">
+                        <div class="alert-phone"></div>  
+                    </div> 
+                    <div class="col">
+                        <label for="postal-code">Postal Code</label> 
+                        <input class="inputs-register input-postal-code" type="number">  
+                        <div class="alert-postal-code"></div>
+                    </div> 
+                    <div class="col">
+                        <label class="label-register"for="location">Location</label>
+                        <input class="inputs-register input-location" type="text"> 
+                        <div class="alert-location"></div>
+                    </div>
+                    
+                </div>         
+            </div>
+            <button class="btn btn-green register-button" type="submit">Log in</button>
+        </div>
+    </div>
+    <footer class="footer-container">
+      <div class="logos-container">
+        <img src="../img/logo-tw-01.svg" alt="logo Twitter">
+        <img src="../img/logo-insta-01.svg" alt="logo Instagram">
+        <img src="../img/logo-in-01.svg" alt="logo Linkedin">
+        <img src="../img/logo-f-01.svg" alt="logo Facebook">
+      </div>
+      <div class="info-copyright">
+        <p>Rosario, Argentina</p>
+        <p>Copyright © 2022 Radium Rocket. All rights reserved.</p>
+      </div>
+    </footer>
+</body>
+</html>
