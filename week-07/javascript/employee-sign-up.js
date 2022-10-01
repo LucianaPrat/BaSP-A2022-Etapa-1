@@ -41,6 +41,8 @@ window.onload = function() {
     var paragraphAlertPassword = document.getElementsByClassName('alert-password')[0];
     var paragraphAlertRepeatPassword = document.getElementsByClassName('alert-repeat-password')[0];
 
+    obtenerValoresDelLocalYponerlosEnelinput() 
+
     inputFirstName.onfocus = function() {
         inputOnFocus(inputFirstName);
     }    
@@ -173,23 +175,23 @@ window.onload = function() {
     }
 
     function validateName(data) {
-        var validation = false;  
+        var validationName = false;  
         var resultValidateNotExistNum = validateNotExistNum(data.value);
         var resultValidateStringLength = validateStringLength(data,3);
-        if((resultValidateStringLength && resultValidateNotExistNum) === true) {
+        if(resultValidateStringLength && resultValidateNotExistNum) {
             data.classList.add('green-border');            
             data.classList.remove('red-border'); 
-            paragraphAlertFirstName.innerHTML = '';
-            validation = true;
+            paragraphAlertFirstName.innerHTML = '';            
+            validationName = true;
        } else {
             data.classList.add('red-border');
             data.classList.remove('green-border');
             paragraphAlertFirstName.innerHTML = alertFirstName;
-            validation = false;
-       }       
-       return validation;    
+            validationName = false;
+       }  
+       return validationName;    
     } 
-      
+
     function validateLastName(data) {
         var validation = false;  
         var resultValidateNotExistNum = validateNotExistNum(data.value);
@@ -258,7 +260,6 @@ window.onload = function() {
             paragraphAlertDateBirth.innerHTML = alertDateBirth; 
             validation = false;
         }
-
         return validation;
     }
     
@@ -393,9 +394,9 @@ window.onload = function() {
             validation = false;
         }
         return validation;
-    }
+    }    
 
-    function validateform() {
+    function creatArrayValidate(){
         var validateForm = [];
         validateForm.push(validateName(inputFirstName));
         validateForm.push(validateLastName(inputLastName));
@@ -408,24 +409,9 @@ window.onload = function() {
         validateForm.push(validateLocation(inputLocation));
         validateForm.push(validatePass(inputPassword));
         validateForm.push(validateRepeatPassword(inputRepeatPassword));        
-        
-        if(!confirmFalse(validateForm)) {
-            alert('Sorry we couldnt complete your sign up: Error or missing fields.');
-        } else {
-            alert('Name: ' + inputFirstName.value + ' \n ' + 
-                  'Last name: ' + inputLastName.value + ' \n ' +
-                  'Email: ' + inputEmail.value + ' \n ' +
-                  'DNI: ' + inputDni.value + ' \n ' +
-                  'Date birth: ' + inputDateBirth.value + ' \n ' +
-                  'Phone: ' + inputPhone.value + ' \n ' +
-                  'Address: ' + inputAddress.value + ' \n ' +
-                  'Postal code: ' + inputPostalCode.value + ' \n ' +
-                  'Location: ' + inputLocation.value + ' \n ' +
-                  'Password: ' + inputPassword.value + ' \n ' +
-                  'Password repeat: ' + inputRepeatPassword.value + ' \n ');
-            window.location.href='index.html';
-        }
-    }
+        return validateForm 
+    }   
+     console.log()
 
 
     function confirmFalse(array) {
@@ -438,16 +424,32 @@ window.onload = function() {
         return validation;
     }
 
-    function validateForm() {
-        // var nameResult = validateLastName(inputFirstName);
-        // var lastNameResult = validateLastName(inputLastName);
-        // var emialResult = validateEmail(inputEmail);
-        // var dniResult = validateEmail(inputEmail);
-        // var 
-       /*  var validationEmailresult = validateEmail(inputEmail);
-        var validationPassword = validatePassword(inputPassword) */;        
-        if(validationEmailresult && validationPassword) {            
-            var url ='https://basp-m2022-api-rest-server.herokuapp.com/login?email=' + inputEmail.value  + '&password=' + inputPassword.value
+  
+
+    
+    
+    
+
+   function validateform() { 
+       /*  var name = inputFirstName.value;
+        var lastName = inputLastName.value;
+        var email = inputEmail.value;
+        var dni = inputDni.value;
+        var dob = inputDateBirth.value;
+        var address = inputAddress.value;
+        var phone = inputPhone.value;
+        var zip = inputPostalCode.value;
+        var location = inputLocation.value;
+        var password = inputPassword.value;
+        var repeatPassword =inputRepeatPassword.value; */
+    
+        if (confirmFalse(creatArrayValidate())){
+            // console.log('verdad')
+            var url = 'https://basp-m2022-api-rest-server.herokuapp.com/signup?name=' + inputFirstName.value +
+            '&lastName=' + inputLastName.value + '&email=' + inputEmail.value + '&dni=' + inputDni.value +
+            '&dob=' + inputDateBirth.value + '&address=' + inputAddress.value + '&phone=' + inputPhone.value +
+            '&zip=' + inputPostalCode.value + '&city=' + inputLocation.value + '&password=' + inputPassword.value +
+            '&repeatPassword=' + inputRepeatPassword.value;           
             fetch(url)
             .then(function (response) {
                 return response.json()
@@ -455,15 +457,46 @@ window.onload = function() {
             .then(function (data) {
                 if(data.success){
                     alert('Your request was successful: ' + data.msg);
+                    localStorage.setItem('name', inputFirstName.value);
+                    localStorage.setItem('lastName', inputLastName.value);
+                    localStorage.setItem('email', inputEmail.value);
+                    localStorage.setItem('dni', inputDni.value);
+                    localStorage.setItem('dateBirth', inputDateBirth.value);
+                    localStorage.setItem('address', inputAddress.value);
+                    localStorage.setItem('phone', inputPhone.value);
+                    localStorage.setItem('postalCode', inputPostalCode.value);
+                    localStorage.setItem('location', inputLocation.value);
+                    localStorage.setItem('password', inputPassword.value);
+                    localStorage.setItem('repeatPassword', inputRepeatPassword.value);      
+                                 
                     window.location.href='index.html'
                 } else {
-                   throw new Error( alert('There is an error: ' + data.msg))
+                   throw new Error( alert('There is an error' + data.errors))
                 }                     
             }) 
             .catch(function (err) { return err})               
-        } else {            
-            alert('Sorry we couldnt complete your sign up: Error or missing fields.');
+            } else {            
+                alert('Sorry we couldnt complete your sign up: Error or missing fields.');
+            }
         }
-    }
-    
-}
+
+        function obtenerValoresDelLocalYponerlosEnelinput() {
+            inputFirstName.value = localStorage.getItem('name');
+            inputLastName.value = localStorage.getItem('lastName');
+            inputEmail.value = localStorage.getItem('email');
+            inputDni.value = localStorage.getItem('dni');
+            inputDateBirth.value = localStorage.getItem('dateBirth');
+            inputAddress.value = localStorage.getItem('address');
+            inputPhone.value = localStorage.getItem('phone');            
+            inputPostalCode.value = localStorage.getItem('postalCode');
+            inputLocation.value = localStorage.getItem('location');
+            inputPassword.value = localStorage.getItem('password');
+            inputRepeatPassword.value = localStorage.getItem('repeatPassword');            
+        }
+
+        
+        
+    } 
+
+        
+

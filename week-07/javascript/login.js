@@ -49,7 +49,6 @@ window.onload = function() {
             data.classList.remove('red-border');
             data.classList.add('green-border');
             paragraphEmail.innerHTML = '';
-            localStorage.setItem('email', data.value);
             validation = true;
         } else { 
             data.classList.add('red-border');
@@ -62,12 +61,11 @@ window.onload = function() {
     function validatePassword(data) {
         var resultValidateStringLength = validateStringLength(data,8);
         var resulthasNumAndWord = hasNumAndWord(data.value);
-        var password
+
         var validation;
         if((resultValidateStringLength && resulthasNumAndWord) === true) {
             data.classList.remove('red-border');
-            data.classList.add('green-border');   
-            localStorage.setItem('password', data.value);         
+            data.classList.add('green-border');           
             validation = true;
         } else { 
             data.classList.remove('green-border');
@@ -128,19 +126,6 @@ window.onload = function() {
             alert('Sorry we couldnt complete your sign up: Error or missing fields.');
         }
     }
-
-   /*  function receivedEmail(){
-        email = localStorage.getItem('email')
-        return email
-    }
-
-    function receivedPassword(){
-        password = localStorage.getItem('password')
-        return password
-    }    
-
-    receivedEmail();    
-    receivedPassword(); */
 
 } 
 
