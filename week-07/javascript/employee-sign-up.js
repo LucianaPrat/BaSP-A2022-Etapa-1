@@ -41,7 +41,7 @@ window.onload = function() {
     var paragraphAlertPassword = document.getElementsByClassName('alert-password')[0];
     var paragraphAlertRepeatPassword = document.getElementsByClassName('alert-repeat-password')[0];
 
-    obtenerValoresDelLocalYponerlosEnelinput() 
+    getValuesAndPutInForm() 
 
     inputFirstName.onfocus = function() {
         inputOnFocus(inputFirstName);
@@ -129,13 +129,11 @@ window.onload = function() {
     inputRepeatPassword.onblur = function() {
         inputOnBlur(inputRepeatPassword);
         validateRepeatPassword(inputRepeatPassword);
-
     } 
 
     registerButton.onclick = function() {
         validateform();
-    } 
-  
+    }   
 
     function inputOnFocus(data) {
         data.classList.add('blue-border');
@@ -143,8 +141,7 @@ window.onload = function() {
 
     function inputOnBlur(data) {
         data.classList.remove('blue-border');
-    }   
-        
+    }           
 
     function validateStringLength(data,allowedValue) {
         var validation = false;
@@ -157,7 +154,7 @@ window.onload = function() {
     function validateNotExistNum(string) {
         var allWords = true;
         for (let i = 0; i < string.length; i++) {
-            if(isNaN(parseInt(string[i])) === false) {
+            if(!isNaN(parseInt(string[i]))) {
                 allWords = false;
             }
         }
@@ -167,7 +164,7 @@ window.onload = function() {
     function validateAllNums(string) {
         var allNums = true;
         for (let i = 0; i < string.length; i++) {
-            if(isNaN(parseInt(string[i])) === true) {
+            if(isNaN(parseInt(string[i]))) {
                 allNums = false;
             }
         }
@@ -244,12 +241,18 @@ window.onload = function() {
         return validation;
     }
 
+    function changDob() {
+        var year = inputDateBirth.value.substring(0, 4);
+        var month = inputDateBirth.value.substring(5, 7);
+        var day = inputDateBirth.value.substring(8);
+        var newDob = month + '/' + day + '/' + year;
+        console.log(newDob)
+        return newDob;
+    }
+
     function validateDateBirth(data) {
-        var resultValidateStringLength = validateStringLength(data,8);
-        var resultValidateNotExistNum = validateNotExistNum(data.value);
-        var resultSerchSimbol = searchCharacter(data.value); 
-        var validation;
-        if(resultValidateStringLength && !resultValidateNotExistNum && resultSerchSimbol) {
+        var validation; 
+        if(inputDateBirth.value ) {
             data.classList.add('green-border');            
             data.classList.remove('red-border'); 
             paragraphAlertDateBirth.innerHTML = '';
@@ -259,8 +262,8 @@ window.onload = function() {
             data.classList.remove('green-border');
             paragraphAlertDateBirth.innerHTML = alertDateBirth; 
             validation = false;
-        }
-        return validation;
+        }       
+        return validation;        
     }
     
     function validatePhone(data) {
@@ -281,26 +284,18 @@ window.onload = function() {
         }
         return validation;
     }
-
-    function searchCharacter(string) {
-        var result = false;
-        if ((string[2] === '/') && (string[5] === '/')) {
-            result = true;
-        }
-        return result;
-    }
-
+    
     function hasNumAndWord(string) {
         var isNum = false;
         var isWord = false;
         var result;
         for(let i = 0; i < string.length; i++) {
-            if(isNaN(parseInt(string[i])) === true) {
+            if(isNaN(parseInt(string[i]))) {
                isWord = true; 
             }
         }
         for(let i = 0; i < string.length; i++) {
-            if(isNaN(parseInt(string[i])) === false) {
+            if(!isNaN(parseInt(string[i]))) {
                 isNum = true;
             }
         }
@@ -312,7 +307,7 @@ window.onload = function() {
         var validation;
         var resulthasNumAndWord = hasNumAndWord(data.value);
         var checkSpace = data.value.indexOf(' ');
-        if((resulthasNumAndWord === true) && (checkSpace > 0)) {
+        if(resulthasNumAndWord && (checkSpace > 0)) {
             data.classList.remove('red-border');
             data.classList.add('green-border'); 
             paragraphAlertAddress.innerHTML = '';
@@ -410,9 +405,7 @@ window.onload = function() {
         validateForm.push(validatePass(inputPassword));
         validateForm.push(validateRepeatPassword(inputRepeatPassword));        
         return validateForm 
-    }   
-     console.log()
-
+    }  
 
     function confirmFalse(array) {
         var validation = true;
@@ -424,30 +417,46 @@ window.onload = function() {
         return validation;
     }
 
-  
-
-    
-    
-    
-
-   function validateform() { 
-       /*  var name = inputFirstName.value;
-        var lastName = inputLastName.value;
-        var email = inputEmail.value;
-        var dni = inputDni.value;
-        var dob = inputDateBirth.value;
-        var address = inputAddress.value;
-        var phone = inputPhone.value;
-        var zip = inputPostalCode.value;
-        var location = inputLocation.value;
-        var password = inputPassword.value;
-        var repeatPassword =inputRepeatPassword.value; */
-    
+    function validateform() { 
+        var megError = ['There are errors in the form: ']
+        if(!validateName(inputFirstName)) {
+            megError.push('First name must have 3 or more letters')
+        } 
+        if(!validateLastName(inputLastName)) {
+            megError.push('Last name must have 3 or more letters')
+        }
+        if(!validateEmail(inputEmail)) { 
+            megError.push('Mail must have a valid email format')
+        }
+        if(!validateDni(inputDni)) {
+            megError.push('DNI must have more than 7 numbers')
+        }
+        if(!validateDateBirth(inputDateBirth)) { 
+            megError.push('Date of birth must be in dd/mm/yyyy format')
+        }
+        if(!validateAddress(inputAddress)) {
+            megError.push('Address at least 5 letters, numbers and a space in between')
+        }
+        if(!validatePhone(inputPhone)) {
+            megError.push('Phone must have 10 numbers')
+        }
+        if(!validatePostalCode(inputPostalCode)) {
+            megError.push('Postal Code must have 4 and 5 numbers')
+        }
+        if(!validateLocation(inputLocation)) {
+            megError.push('Location must have more than 3')
+        }
+        if(!validatePass(inputPassword)) {
+            megError.push('Password must have at least 8 characters, consisting of letters and numbers')
+        }
+        if(!validateRepeatPassword(inputRepeatPassword)) {
+            megError.push('The password is not repeated correctly')
+        }       
         if (confirmFalse(creatArrayValidate())){
-            // console.log('verdad')
+            var newDob = changDob();
             var url = 'https://basp-m2022-api-rest-server.herokuapp.com/signup?name=' + inputFirstName.value +
             '&lastName=' + inputLastName.value + '&email=' + inputEmail.value + '&dni=' + inputDni.value +
-            '&dob=' + inputDateBirth.value + '&address=' + inputAddress.value + '&phone=' + inputPhone.value +
+            '&dob=' + newDob + '&address=' + inputAddress.value + '&phone=' + inputPhone.value +
             '&zip=' + inputPostalCode.value + '&city=' + inputLocation.value + '&password=' + inputPassword.value +
             '&repeatPassword=' + inputRepeatPassword.value;           
             fetch(url)
@@ -467,36 +476,36 @@ window.onload = function() {
                     localStorage.setItem('postalCode', inputPostalCode.value);
                     localStorage.setItem('location', inputLocation.value);
                     localStorage.setItem('password', inputPassword.value);
-                    localStorage.setItem('repeatPassword', inputRepeatPassword.value);      
-                                 
-                    window.location.href='index.html'
-                } else {
-                   throw new Error( alert('There is an error' + data.errors))
-                }                     
+                    localStorage.setItem('repeatPassword', inputRepeatPassword.value);                                   
+                    window.location.href='index.html'  
+                }                
             }) 
-            .catch(function (err) { return err})               
-            } else {            
-                alert('Sorry we couldnt complete your sign up: Error or missing fields.');
-            }
+            .catch(function (err) {
+                return err;  
+            })    
+        } else {
+            alert(megError);
+            megError = []
         }
+    }
 
-        function obtenerValoresDelLocalYponerlosEnelinput() {
-            inputFirstName.value = localStorage.getItem('name');
-            inputLastName.value = localStorage.getItem('lastName');
-            inputEmail.value = localStorage.getItem('email');
-            inputDni.value = localStorage.getItem('dni');
-            inputDateBirth.value = localStorage.getItem('dateBirth');
-            inputAddress.value = localStorage.getItem('address');
-            inputPhone.value = localStorage.getItem('phone');            
-            inputPostalCode.value = localStorage.getItem('postalCode');
-            inputLocation.value = localStorage.getItem('location');
-            inputPassword.value = localStorage.getItem('password');
-            inputRepeatPassword.value = localStorage.getItem('repeatPassword');            
-        }
+    function getValuesAndPutInForm() {
+        inputFirstName.value = localStorage.getItem('name');
+        inputLastName.value = localStorage.getItem('lastName');
+        inputEmail.value = localStorage.getItem('email');
+        inputDni.value = localStorage.getItem('dni');
+        inputDateBirth.value = localStorage.getItem('dateBirth');
+        inputAddress.value = localStorage.getItem('address');
+        inputPhone.value = localStorage.getItem('phone');            
+        inputPostalCode.value = localStorage.getItem('postalCode');
+        inputLocation.value = localStorage.getItem('location');
+        inputPassword.value = localStorage.getItem('password');
+        inputRepeatPassword.value = localStorage.getItem('repeatPassword');            
+    }
 
         
         
-    } 
+} 
 
         
 
