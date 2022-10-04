@@ -1,3 +1,6 @@
+.general-container {
+   justify-content: center;
+}
 .register-employee-container {
    align-items: center;
    justify-content: space-evenly;
@@ -6,8 +9,8 @@
    border: 1px solid  #373867;
 }
 
-.form-register-employee {    
-   width: 70%;  
+.form-register-employee {
+   width: 70%;
    justify-content: space-around;
 }
 

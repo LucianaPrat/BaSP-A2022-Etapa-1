@@ -10,7 +10,7 @@
   height: auto;
 }
 
-.logo-container {  
+.logo-container {
   align-items: center;
 }
 
@@ -41,15 +41,15 @@
   .header-container {
     width: 100%;
   }
-  
+
   .header-container .item {
     margin: 20px 20px;
   }
-   
+
   .logo-container {
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;    
+    width: 100%;
   }
 
   .icons-media {
@@ -65,7 +65,7 @@
   }
 
   .logo-trackgenix {
-  display: none;  
+  display: none;
   }
 
   .logo-trackgenix-2 {

@@ -1,88 +1,72 @@
 window.onload = function() {
-
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-
-    var inputEmail = document.getElementById('email');    
+    var inputEmail = document.getElementById('email');
     var inputPassword = document.getElementById('password');
-
     var alertEmail = "<p>Your email has an error</p>";
     var alertPassword = "<p>Your pass has an error</p>";
-        
-    var paragraphEmail = document.getElementsByClassName('alert-email')[0]; 
-    var paragraphPassword = document.getElementsByClassName('alert-password')[0];   
-
+    var paragraphEmail = document.getElementsByClassName('alert-email')[0];
+    var paragraphPassword = document.getElementsByClassName('alert-password')[0];
     var submitButton = document.getElementsByClassName('submit-button')[0];
-
     inputEmail.onfocus = function() {
         inputOnFocus(inputEmail);
     }
-
     inputEmail.onblur = function() {
         inputOnBlur(inputEmail);
         validateEmail(inputEmail);
     }
-
     inputPassword.onfocus = function() {
         inputOnFocus(inputPassword);
     }
-
     inputPassword.onblur = function() {
         inputOnBlur(inputPassword);
         validatePassword(inputPassword);
-    } 
-
-    submitButton.onclick = function() {        
-        validateForm();            
     }
-
+    submitButton.onclick = function() {
+        validateForm();
+    }
     function inputOnFocus(data) {
         data.classList.add('blue-border');
     }
-
     function inputOnBlur(data) {
         data.classList.remove('blue-border');
-    }   
-
+    }
    function validateEmail(data) {
         var validation;
-        if(emailExpression.test(data.value) === true) {            
+        if(emailExpression.test(data.value) === true) {
             data.classList.remove('red-border');
             data.classList.add('green-border');
             paragraphEmail.innerHTML = '';
             validation = true;
-        } else { 
+        } else {
             data.classList.add('red-border');
-            paragraphEmail.innerHTML = alertEmail; 
+            paragraphEmail.innerHTML = alertEmail;
             validation = false;
         }
         return validation;
-    } 
-
+    }
     function validatePassword(data) {
         var resultValidateStringLength = validateStringLength(data,8);
         var resulthasNumAndWord = hasNumAndWord(data.value);
         var validation;
         if((resultValidateStringLength && resulthasNumAndWord)) {
             data.classList.remove('red-border');
-            data.classList.add('green-border');           
+            data.classList.add('green-border');
             validation = true;
-        } else { 
+        } else {
             data.classList.remove('green-border');
             data.classList.add('red-border');
             paragraphPassword.innerHTML = alertPassword;
             validation = false;
         }
         return validation;
-    } 
-
+    }
     function validateStringLength(data,allowedValue) {
         var validation = false;
         if(data.value.length >= allowedValue) {
             validation = true;
         }
         return  validation;
-    } 
-
+    }
     function hasNumAndWord(string) {
         var isNum = false;
         var isWord = false;
@@ -99,19 +83,18 @@ window.onload = function() {
         }
         result = isNum && isWord;
         return result;
-    }    
-
+    }
     function validateForm() {
         var validationEmailresult = validateEmail(inputEmail);
-        var validationPassword = validatePassword(inputPassword); 
+        var validationPassword = validatePassword(inputPassword);
         var newMsg = []
         if(!validationEmailresult) {
             newMsg.push('Error in your email')
         }
         if(!validationPassword) {
             newMsg.push('Error in your password')
-        }        
-        if(validationEmailresult && validationPassword) {            
+        }
+        if(validationEmailresult && validationPassword) {
             var url ='https://basp-m2022-api-rest-server.herokuapp.com/login?email=' + inputEmail.value  + '&password=' + inputPassword.value
             fetch(url)
             .then(function (response) {
@@ -123,16 +106,14 @@ window.onload = function() {
                     window.location.href='index.html'
                 } else {
                    throw new Error('There is an error: ' + data.msg);
-                }                     
-            }) 
-            .catch(function (err) { return err})               
-        } else {           
+                }
+            })
+            .catch(function (err) { return err})
+        } else {
             alert('Sorry we couldnt complete your sign up: '+ newMsg);
             newMsg = [];
         }
     }
+}
 
-} 
 
-
-    

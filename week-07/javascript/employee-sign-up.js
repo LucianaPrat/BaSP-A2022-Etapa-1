@@ -23,7 +23,7 @@ window.onload = function() {
     var alertLocation = "<p>Location must have more than 3 letters</p>";
     var alertPassword = "<p>Password must have at least 8 characters</p>";
     var alertRepeatPassword = "<p>The password is not repeated correctly</p>";
-    var alertEmty = "<p>Please complete the field</p>"
+    var alertEmty = "<p>Please complete the field</p>";
     var paragraphAlertFirstName = document.getElementsByClassName('alert-name')[0];
     var paragraphAlertLastName = document.getElementsByClassName('alert-last-name')[0];
     var paragraphAlertEmail = document.getElementsByClassName('alert-email')[0];
@@ -165,7 +165,7 @@ window.onload = function() {
         return allNums;
     }
     function inputEmpty(data) {
-        return data.value.length === 0; 
+        return data.value.length === 0;
     }
     function changDob() {
         var year = inputDateBirth.value.substring(0, 4);
@@ -321,7 +321,7 @@ window.onload = function() {
         } else {
             data.classList.add('green-border');
             data.classList.remove('red-border');
-            paragraphAlertDateBirth.innerHTML = '';
+            paragraphAlertPhone.innerHTML = '';
             validation = true;
         }
         return validation;
@@ -349,7 +349,7 @@ window.onload = function() {
         } else {
             data.classList.add('green-border');
             data.classList.remove('red-border');
-            paragraphAlertDateBirth.innerHTML = '';
+            paragraphAlertAddress.innerHTML = '';
             validation = true;
         }
         return validation;
@@ -363,7 +363,7 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertAddress.innerHTML = alertEmty;
+            paragraphAlertPostalCode.innerHTML = alertEmty;
             validation = false;
         } else if (!checkLength) {
             data.classList.remove('green-border');
@@ -420,7 +420,7 @@ window.onload = function() {
             data.classList.add('red-border');
             paragraphAlertPassword.innerHTML = alertPassword;
             validation = false;
-        } else if (!resulthasNumAndWord){
+        } else if (!resulthasNumAndWord) {
              data.classList.remove('green-border');
             data.classList.add('red-border');
             paragraphAlertPassword.innerHTML = '<p>Your password most have letters and numbers</p>';
@@ -470,7 +470,7 @@ window.onload = function() {
         return validateForm;
     }
     function confirmFalse(array) {
-        var validation = true;
+        var validation;
         for(let i = 0; i < array.length; i++) {
             if (!array[i]) {
                 validation = false;
@@ -479,39 +479,39 @@ window.onload = function() {
         return validation;
     }
     function validateform() {
-        var megError = ['There are errors in the form: ']
+        var megError = ['There are errors in the form: '];
         if (!validateName(inputFirstName)) {
-            megError.push('First name must have 3 or more letters')
+            megError.push('First name must have 3 or more letters');
         }
         if (!validateLastName(inputLastName)) {
-            megError.push('Last name must have 3 or more letters')
+            megError.push('Last name must have 3 or more letters');
         }
         if (!validateEmail(inputEmail)) {
-            megError.push('Mail must have a valid email format')
+            megError.push('Mail must have a valid email format');
         }
         if (!validateDni(inputDni)) {
-            megError.push('DNI must have more than 7 numbers')
+            megError.push('DNI must have more than 7 numbers');
         }
         if (!validateDateBirth(inputDateBirth)) {
-            megError.push('Date of birth must be in dd/mm/yyyy format')
+            megError.push('Date of birth must be in dd/mm/yyyy format');
         }
         if (!validateAddress(inputAddress)) {
-            megError.push('Address at least 5 letters, numbers and a space in between')
+            megError.push('Address at least 5 letters, numbers and a space in between');
         }
         if (!validatePhone(inputPhone)) {
-            megError.push('Phone must have 10 numbers')
+            megError.push('Phone must have 10 numbers');
         }
         if (!validatePostalCode(inputPostalCode)) {
-            megError.push('Postal Code must have 4 and 5 numbers')
+            megError.push('Postal Code must have 4 and 5 numbers');
         }
         if (!validateLocation(inputLocation)) {
-            megError.push('Location must have more than 3')
+            megError.push('Location must have more than 3');
         }
         if (!validatePass(inputPassword)) {
-            megError.push('Password must have at least 8 characters,with letters and numbers')
+            megError.push('Password must have at least 8 characters,with letters and numbers');
         }
         if (!validateRepeatPassword(inputRepeatPassword)) {
-            megError.push('The password is not repeated correctly')
+            megError.push('The password is not repeated correctly');
         }
         if (confirmFalse(arrayValidate())){
             var newDob = changDob();
@@ -522,7 +522,7 @@ window.onload = function() {
             '&repeatPassword=' + inputRepeatPassword.value;
             fetch(url)
             .then(function (response) {
-                return response.json()
+                return response.json();
             })
             .then(function (data) {
                 if (data.success){
@@ -538,7 +538,7 @@ window.onload = function() {
                     localStorage.setItem('location', inputLocation.value);
                     localStorage.setItem('password', inputPassword.value);
                     localStorage.setItem('repeatPassword', inputRepeatPassword.value);
-                    window.location.href='index.html'
+                    window.location.href='index.html';
                 }
             })
             .catch(function (err) {
@@ -546,7 +546,7 @@ window.onload = function() {
             })
         } else {
             alert(megError);
-            megError = []
+            megError = [];
         }
     }
     function getValuesAndPutInForm() {
