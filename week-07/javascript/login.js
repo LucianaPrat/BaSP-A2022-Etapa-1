@@ -2,8 +2,8 @@ window.onload = function() {
 
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
-    var inputEmail = document.getElementsByClassName('input-email')[0];    
-    var inputPassword = document.getElementsByClassName('input-password')[0];
+    var inputEmail = document.getElementById('email');    
+    var inputPassword = document.getElementById('password');
 
     var alertEmail = "<p>Your email has an error</p>";
     var alertPassword = "<p>Your pass has an error</p>";
@@ -61,9 +61,8 @@ window.onload = function() {
     function validatePassword(data) {
         var resultValidateStringLength = validateStringLength(data,8);
         var resulthasNumAndWord = hasNumAndWord(data.value);
-
         var validation;
-        if((resultValidateStringLength && resulthasNumAndWord) === true) {
+        if((resultValidateStringLength && resulthasNumAndWord)) {
             data.classList.remove('red-border');
             data.classList.add('green-border');           
             validation = true;
@@ -100,13 +99,18 @@ window.onload = function() {
         }
         result = isNum && isWord;
         return result;
-    }
-
-    
+    }    
 
     function validateForm() {
         var validationEmailresult = validateEmail(inputEmail);
-        var validationPassword = validatePassword(inputPassword);        
+        var validationPassword = validatePassword(inputPassword); 
+        var newMsg = []
+        if(!validationEmailresult) {
+            newMsg.push('Error in your email')
+        }
+        if(!validationPassword) {
+            newMsg.push('Error in your password')
+        }        
         if(validationEmailresult && validationPassword) {            
             var url ='https://basp-m2022-api-rest-server.herokuapp.com/login?email=' + inputEmail.value  + '&password=' + inputPassword.value
             fetch(url)
@@ -118,12 +122,13 @@ window.onload = function() {
                     alert('Your request was successful: ' + data.msg);
                     window.location.href='index.html'
                 } else {
-                   throw new Error( alert('There is an error: ' + data.msg))
+                   throw new Error('There is an error: ' + data.msg);
                 }                     
             }) 
             .catch(function (err) { return err})               
-        } else {            
-            alert('Sorry we couldnt complete your sign up: Error or missing fields.');
+        } else {           
+            alert('Sorry we couldnt complete your sign up: '+ newMsg);
+            newMsg = [];
         }
     }
 
