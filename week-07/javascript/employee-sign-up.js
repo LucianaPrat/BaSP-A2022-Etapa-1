@@ -12,18 +12,17 @@ window.onload = function() {
     var inputPassword = document.getElementById('password');
     var inputRepeatPassword = document.getElementById('repeat-password');
     var registerButton = document.getElementById('register-button');
-    var alertFirstName = "<p>First name must have 3 or more letters</p>";
-    var alertLastName = "<p>Last name must have 3 or more letters</p>";
-    var alertEmail = "<p>Mail must have a valid email format</p>";
-    var alertDni = "<p>DNI must have more than 7 numbers</p>";
-    var alertPhone = "<p>Phone must have 10 numbers</p>";
-    var alertDni = "<p>DNI must have more than 7 numbers</p>";
-    var alertAddress = "<p>Address at least 5 letters, numbers and a space in between</p>";
-    var alertPostalCode = "<p>Postal Code must have 4 and 5 numbers</p>";
-    var alertLocation = "<p>Location must have more than 3 letters</p>";
-    var alertPassword = "<p>Password must have at least 8 characters</p>";
-    var alertRepeatPassword = "<p>The password is not repeated correctly</p>";
-    var alertEmty = "<p>Please complete the field</p>";
+    var errorFirstName = "<p>First name must have 3 or more letters</p>";
+    var errorLastName = "<p>Last name must have 3 or more letters</p>";
+    var errorEmail = "<p>Mail must have a valid email format</p>";
+    var errorDni = "<p>DNI must have more than 7 or 8 numbers</p>";
+    var errorPhone = "<p>Phone must have 10 numbers</p>";
+    var errorAddress = "<p>Address at least 5 letters, numbers and a space in between</p>";
+    var errorPostalCode = "<p>Postal Code must have 4 and 5 numbers</p>";
+    var errorLocation = "<p>Location must have more than 3 letters</p>";
+    var errorPassword = "<p>Password must have at least 8 characters</p>";
+    var errorRepeatPassword = "<p>The password is not repeated correctly</p>";
+    var errorEmpty = "<p>Please complete the field</p>";
     var paragraphAlertFirstName = document.getElementsByClassName('alert-name')[0];
     var paragraphAlertLastName = document.getElementsByClassName('alert-last-name')[0];
     var paragraphAlertEmail = document.getElementsByClassName('alert-email')[0];
@@ -138,7 +137,16 @@ window.onload = function() {
         }
         return allWords;
     }
-     function hasNumAndWord(string) {
+    function hasNum(string) {
+        var res = false;
+         for(let i = 0; i < string.length; i++) {
+            if (!isNaN(parseInt(string[i]))) {
+                res = true;
+            }
+        }
+        return res
+    }
+    function hasNumAndWord(string) {
         var isNum = false;
         var isWord = false;
         var result;
@@ -174,6 +182,12 @@ window.onload = function() {
         var newDob = month + '/' + day + '/' + year;
         return newDob;
     }
+    function showModal(data) {
+        modalContent = document.getElementsByClassName('modal-content')[0];
+        modal = document.getElementsByClassName('msg-modal')[0];
+        modalContent.style.display = 'flex';
+        modal.innerHTML = data;
+    }
     function validateName(data) {
         var validation;
         var resultallWords = allWords(data.value);
@@ -182,20 +196,19 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertFirstName.innerHTML = alertEmty;
+            paragraphAlertFirstName.innerHTML = errorEmpty;
             validation = false;
         } else if (!resultValidateStringLength) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertFirstName.innerHTML = alertFirstName;
+            paragraphAlertFirstName.innerHTML = errorFirstName;
             validation = false;
         } else if (!resultallWords) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
             paragraphAlertFirstName.innerHTML = '<p>Your name must only have letters</p>';
             validation = false;
-        }
-        else {
+        } else {
             data.classList.add('green-border');
             data.classList.remove('red-border');
             paragraphAlertFirstName.innerHTML = '';
@@ -211,12 +224,12 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertLastName.innerHTML = alertEmty;
+            paragraphAlertLastName.innerHTML = errorEmpty;
             validation = false;
         } else if (!resultValidateStringLength) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertLastName.innerHTML = alertLastName;
+            paragraphAlertLastName.innerHTML = errorLastName;
             validation = false;
        } else if (!resultValidateNotExistNum) {
             data.classList.add('red-border');
@@ -238,12 +251,12 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertEmail.innerHTML = alertEmty;
+            paragraphAlertEmail.innerHTML = errorEmpty;
             validation = false;
         } else if (!isEmail) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertEmail.innerHTML = alertEmail;
+            paragraphAlertEmail.innerHTML = errorEmail;
             validation = false;
         } else {
             data.classList.remove('red-border');
@@ -255,18 +268,19 @@ window.onload = function() {
     }
     function validateDni(data) {
         var validation;
-        var resultValidateStringLength = validateStringLength(data,7);
+        var stringLength = data.value.length;
+        var resultValidateStringLength = stringLength === 7 || stringLength === 8;
         var resultValidateAllnums = validateAllNums(data.value);
         var isEmpty = inputEmpty(data);
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertDni.innerHTML = alertEmty;
+            paragraphAlertDni.innerHTML = errorEmpty;
             validation = false;
         } else if (!resultValidateStringLength){
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertDni.innerHTML = alertDni;
+            paragraphAlertDni.innerHTML = errorDni;
             validation = false;
         } else if (!resultValidateAllnums) {
             data.classList.add('red-border');
@@ -287,7 +301,7 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertDateBirth.innerHTML = alertEmty;
+            paragraphAlertDateBirth.innerHTML = errorEmpty;
             validation = false;
         } else {
             data.classList.add('green-border');
@@ -306,12 +320,12 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertPhone.innerHTML = alertEmty;
+            paragraphAlertPhone.innerHTML = errorEmpty;
             validation = false;
         } else if (!resultValidateStringLength) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertPhone.innerHTML = alertPhone;
+            paragraphAlertPhone.innerHTML = errorPhone;
             validation = false;
         } else if (!resultValidateAllNums) {
             data.classList.add('red-border');
@@ -334,17 +348,17 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertAddress.innerHTML = alertEmty;
+            paragraphAlertAddress.innerHTML = errorEmpty;
             validation = false;
         } else if (!resulthasNumAndWord) {
             data.classList.remove('green-border');
             data.classList.add('red-border');
-            paragraphAlertAddress.innerHTML = alertAddress;
+            paragraphAlertAddress.innerHTML = errorAddress;
             validation = false;
         } else if (!checkSpace > 0){
             data.classList.remove('green-border');
             data.classList.add('red-border');
-            paragraphAlertAddress.innerHTML = alertAddress;
+            paragraphAlertAddress.innerHTML = errorAddress;
             validation = false;
         } else {
             data.classList.add('green-border');
@@ -363,7 +377,7 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertPostalCode.innerHTML = alertEmty;
+            paragraphAlertPostalCode.innerHTML = errorEmpty;
             validation = false;
         } else if (!checkLength) {
             data.classList.remove('green-border');
@@ -373,7 +387,7 @@ window.onload = function() {
         } else if (!checkAllNums) {
            data.classList.remove('green-border');
             data.classList.add('red-border');
-            paragraphAlertPostalCode.innerHTML = alertPostalCode;
+            paragraphAlertPostalCode.innerHTML = errorPostalCode;
             validation = false;
         } else {
              data.classList.remove('red-border');
@@ -387,15 +401,21 @@ window.onload = function() {
         var stringLength = data.value.length;
         var resultValidateStringLength = stringLength > 3;
         var isEmpty = inputEmpty(data);
+        var ResultHasNum = hasNum(data.value);
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertLocation.innerHTML = alertEmty;
+            paragraphAlertLocation.innerHTML = errorEmpty;
             validation = false;
         } else if (!resultValidateStringLength) {
             data.classList.remove('green-border');
             data.classList.add('red-border');
-            paragraphAlertLocation.innerHTML = alertLocation;
+            paragraphAlertLocation.innerHTML = errorLocation;
+            validation = false;
+        } else if (ResultHasNum) {
+            data.classList.remove('green-border');
+            data.classList.add('red-border');
+            paragraphAlertLocation.innerHTML = '<p>Your location must only have letters</p>';
             validation = false;
         } else {
             data.classList.remove('red-border');
@@ -413,12 +433,12 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertPassword.innerHTML = alertEmty;
+            paragraphAlertPassword.innerHTML = errorEmpty;
             validation = false;
         } else if (!resultValidateStringLength) {
             data.classList.remove('green-border');
             data.classList.add('red-border');
-            paragraphAlertPassword.innerHTML = alertPassword;
+            paragraphAlertPassword.innerHTML = errorPassword;
             validation = false;
         } else if (!resulthasNumAndWord) {
              data.classList.remove('green-border');
@@ -439,12 +459,12 @@ window.onload = function() {
         if (isEmpty) {
             data.classList.add('red-border');
             data.classList.remove('green-border');
-            paragraphAlertRepeatPassword.innerHTML = alertEmty;
+            paragraphAlertRepeatPassword.innerHTML = errorEmpty;
             validation = false;
         } else if (!(inputPassword.value === inputRepeatPassword.value)) {
             data.classList.remove('green-border');
             data.classList.add('red-border');
-            paragraphAlertRepeatPassword .innerHTML = alertRepeatPassword;
+            paragraphAlertRepeatPassword .innerHTML = errorRepeatPassword;
             validation = false;
         } else {
             data.classList.remove('red-border');
@@ -454,7 +474,7 @@ window.onload = function() {
         }
         return validation;
     }
-    function arrayValidate(){
+    function arrayValidate() {
         var validateForm = [];
         validateForm.push(validateName(inputFirstName));
         validateForm.push(validateLastName(inputLastName));
@@ -470,7 +490,7 @@ window.onload = function() {
         return validateForm;
     }
     function confirmFalse(array) {
-        var validation;
+        var validation = true;
         for(let i = 0; i < array.length; i++) {
             if (!array[i]) {
                 validation = false;
@@ -479,41 +499,44 @@ window.onload = function() {
         return validation;
     }
     function validateform() {
-        var megError = ['There are errors in the form: '];
+        var newDob = changDob();
+        var msgError = [];
+        var array = arrayValidate();
+        var resultArray = confirmFalse(array);
         if (!validateName(inputFirstName)) {
-            megError.push('First name must have 3 or more letters');
+            msgError.push('First name must have 3 or more letters.\n');
         }
         if (!validateLastName(inputLastName)) {
-            megError.push('Last name must have 3 or more letters');
+            msgError.push('Last name must have 3 or more letters.\n');
         }
         if (!validateEmail(inputEmail)) {
-            megError.push('Mail must have a valid email format');
+            msgError.push('Mail must have a valid email format.\n');
         }
         if (!validateDni(inputDni)) {
-            megError.push('DNI must have more than 7 numbers');
+            msgError.push('DNI must have more than 7 numbers.\n');
         }
         if (!validateDateBirth(inputDateBirth)) {
-            megError.push('Date of birth must be in dd/mm/yyyy format');
+            msgError.push('Date of birth must be in dd/mm/yyyy format.\n');
         }
         if (!validateAddress(inputAddress)) {
-            megError.push('Address at least 5 letters, numbers and a space in between');
+            msgError.push('Address at least 5 letters, numbers and a space in between.\n');
         }
         if (!validatePhone(inputPhone)) {
-            megError.push('Phone must have 10 numbers');
+            msgError.push('Phone must have 10 numbers.\n');
         }
         if (!validatePostalCode(inputPostalCode)) {
-            megError.push('Postal Code must have 4 and 5 numbers');
+            msgError.push('Postal Code must have 4 and 5 numbers.\n');
         }
         if (!validateLocation(inputLocation)) {
-            megError.push('Location must have more than 3');
+            msgError.push('Location must have more than 3.\n');
         }
         if (!validatePass(inputPassword)) {
-            megError.push('Password must have at least 8 characters,with letters and numbers');
+            msgError.push('Password must have at least 8 characters,with letters and numbers.\n');
         }
         if (!validateRepeatPassword(inputRepeatPassword)) {
-            megError.push('The password is not repeated correctly');
+            msgError.push('The password is not repeated correctly\n');
         }
-        if (confirmFalse(arrayValidate())){
+        if (resultArray === true){
             var newDob = changDob();
             var url = 'https://basp-m2022-api-rest-server.herokuapp.com/signup?name=' + inputFirstName.value +
             '&lastName=' + inputLastName.value + '&email=' + inputEmail.value + '&dni=' + inputDni.value +
@@ -542,11 +565,11 @@ window.onload = function() {
                 }
             })
             .catch(function (err) {
-                return err;
+               return err;
             })
         } else {
-            alert(megError);
-            megError = [];
+            alert('There are errors in the form: \n' + msgError.join(""));
+            msgError = [];
         }
     }
     function getValuesAndPutInForm() {

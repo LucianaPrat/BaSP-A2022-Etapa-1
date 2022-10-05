@@ -28,9 +28,17 @@ Improvements from the previous Flexbox premise.
 
 ## Week 06
 
-Creation of Login and Signup sections for employees.
+Creation of validation for Sign-in and Sign-up forms for employees.
+
 [Link Login](https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-06/views/login.html)
 [Link Signup](https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-06/views/employee-sign-up.html)
+
+## Week 07
+
+Realization of an HTTP request for form validations through a web server.
+
+[Link Login](https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-07/views/login.html)
+[Link Signup](https://lucianaprat.github.io/BaSP-A2022-Etapa-1/week-07/views/employee-sign-up.html)
 
 ## Author
 

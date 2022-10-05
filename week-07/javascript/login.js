@@ -2,8 +2,7 @@ window.onload = function() {
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
     var inputEmail = document.getElementById('email');
     var inputPassword = document.getElementById('password');
-    var alertEmail = "<p>Your email has an error</p>";
-    var alertPassword = "<p>Your pass has an error</p>";
+    var errorEmail = "<p>Your email has an error</p>";
     var paragraphEmail = document.getElementsByClassName('alert-email')[0];
     var paragraphPassword = document.getElementsByClassName('alert-password')[0];
     var submitButton = document.getElementsByClassName('submit-button')[0];
@@ -38,8 +37,9 @@ window.onload = function() {
             paragraphEmail.innerHTML = '';
             validation = true;
         } else {
+            data.classList.remove('green-border');
             data.classList.add('red-border');
-            paragraphEmail.innerHTML = alertEmail;
+            paragraphEmail.innerHTML = errorEmail;
             validation = false;
         }
         return validation;
@@ -48,15 +48,21 @@ window.onload = function() {
         var resultValidateStringLength = validateStringLength(data,8);
         var resulthasNumAndWord = hasNumAndWord(data.value);
         var validation;
-        if((resultValidateStringLength && resulthasNumAndWord)) {
-            data.classList.remove('red-border');
-            data.classList.add('green-border');
-            validation = true;
-        } else {
-            data.classList.remove('green-border');
+        if(!resultValidateStringLength) {
             data.classList.add('red-border');
-            paragraphPassword.innerHTML = alertPassword;
+            data.classList.remove('green-border');
+            paragraphPassword.innerHTML = '<p>Password must have at least 8 characters</p>';
             validation = false;
+        } else if(!resulthasNumAndWord) {
+            data.classList.add('red-border');
+            data.classList.remove('green-border');
+            paragraphPassword.innerHTML = '<p>Your password most have letters and numbers</p>';
+            validation = false;
+        } else {
+            data.classList.add('green-border');
+            data.classList.remove('red-border');
+            paragraphPassword.innerHTML = '';
+            validation = true;
         }
         return validation;
     }
@@ -89,28 +95,31 @@ window.onload = function() {
         var validationPassword = validatePassword(inputPassword);
         var newMsg = []
         if(!validationEmailresult) {
-            newMsg.push('Error in your email')
+            newMsg.push('Mail must have a valid email format.\n');
         }
         if(!validationPassword) {
-            newMsg.push('Error in your password')
+            newMsg.push('Password must have at least 8 characters,with letters and numbers.\n');
         }
         if(validationEmailresult && validationPassword) {
             var url ='https://basp-m2022-api-rest-server.herokuapp.com/login?email=' + inputEmail.value  + '&password=' + inputPassword.value
             fetch(url)
             .then(function (response) {
-                return response.json()
+                return response.json();
             })
             .then(function (data) {
-                if(data.success){
+                if(data.success) {
                     alert('Your request was successful: ' + data.msg);
-                    window.location.href='index.html'
+                    window.location.href='index.html';
                 } else {
                    throw new Error('There is an error: ' + data.msg);
                 }
             })
-            .catch(function (err) { return err})
+            .catch(function (err) {
+                alert('Your request was denied')
+                return err
+            })
         } else {
-            alert('Sorry we couldnt complete your sign up: '+ newMsg);
+            alert('Sorry we couldnt complete your sign up: \n'+ newMsg.join(""));
             newMsg = [];
         }
     }
